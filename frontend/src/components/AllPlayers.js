@@ -5,6 +5,9 @@ import { useTable } from "react-table";
 // import nba_player_data_20-21-- from "./nba_player_data_20-21--.json"
 import { COLUMNS } from "./columnsAP";
 
+// Importing React-Table : https://www.bacancytechnology.com/blog/react-table-tutorial-part-1/#4
+// TABLE TUTORIAL: https://www.youtube.com/watch?v=hson9BXU9F8
+
 const AllPlayers = () => {
   const showData = () => {
     // const d = JSON.parse(players);
