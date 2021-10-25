@@ -7,6 +7,7 @@ import { COLUMNS } from "./columnsAP";
 
 // Importing React-Table : https://www.bacancytechnology.com/blog/react-table-tutorial-part-1/#4
 // TABLE TUTORIAL: https://www.youtube.com/watch?v=hson9BXU9F8
+// CSV TO JSON Convertor: https://www.convertcsv.com/csv-to-json.htm
 
 const AllPlayers = () => {
   const showData = () => {
