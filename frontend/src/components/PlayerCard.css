@@ -1,0 +1,62 @@
+.whole-card{
+    display: flex;
+    flex-direction: column;
+    width: 650px;
+    margin: auto;
+}
+
+.player-name{
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.first{
+    display: flex;
+    justify-content: flex-start;
+    font-size: 30px;
+    font-weight: 300;
+}
+
+.last{
+    display: flex;
+    justify-content: flex-start;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.card-box{
+    background-color: white;
+    border: 1px solid #237AFD;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px;
+    justify-content: center;
+}
+
+.data-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.time-label{
+    display: flex;
+    color: #7B7B7B94;
+    border-bottom: 1px solid lightgrey;
+    justify-content: flex-start;
+    padding: 5px 10px;
+    margin: 10px 0px;
+}
+
+.data-labels{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px;
+    font-weight: 600;
+}
+
+.light{
+    color: #00000070;
+}
