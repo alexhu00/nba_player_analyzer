@@ -1,4 +1,5 @@
 import React, { useMemo } from "react";
+import "./AllPlayers.css";
 import NavBar from "../NavBar";
 import { players } from "../nba_player_data_20-21-";
 import { useTable } from "react-table";
@@ -36,7 +37,16 @@ const AllPlayers = () => {
         objects.push(obj_data);
       }
     }
-    console.log(objects);
+    if (objects.length != 0) {
+      console.log(objects);
+      alert(
+        "There are " +
+          objects.length.toString() +
+          " players selected and " +
+          objects[0].Player +
+          " is the First Player Selected!"
+      );
+    }
   };
 
   const columns = useMemo(() => COLUMNS, []);
@@ -69,7 +79,7 @@ const AllPlayers = () => {
   return (
     <div>
       <button onClick={showCheckBoxData}>Click</button>
-      <table {...getTableBodyProps}>
+      <table {...getTableBodyProps} className="whole-table">
         <thead>
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
