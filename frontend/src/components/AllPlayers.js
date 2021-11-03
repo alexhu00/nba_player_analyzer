@@ -10,11 +10,33 @@ import { COLUMNS } from "./columnsAP";
 // CSV TO JSON Convertor: https://www.convertcsv.com/csv-to-json.htm
 
 const AllPlayers = () => {
-  const showData = () => {
-    // const d = JSON.parse(players);
+  function getSelectedCheckboxItems(name) {
+    let values = [];
+    // grabs all checkboxes that are checked
+    const checkboxes = document.querySelectorAll(
+      `input[name="${name}"]:checked`
+    );
+    checkboxes.forEach((checkbox) => {
+      values.push(checkbox);
+    });
+
+    // returns arrays of all checkboxes that are checked
+    return values;
+  }
+
+  const showCheckBoxData = () => {
     console.log("hello");
-    // console.log(Object.entries(players));
-    console.log(players);
+    let vals = getSelectedCheckboxItems("itemCheckbox");
+    // console.log(vals[0].getAttribute("data"));
+    let objects = [];
+    if (vals.length != 0) {
+      for (let i = 0; i < vals.length; i++) {
+        let str_data = vals[i].getAttribute("data");
+        let obj_data = JSON.parse(str_data);
+        objects.push(obj_data);
+      }
+    }
+    console.log(objects);
   };
 
   const columns = useMemo(() => COLUMNS, []);
@@ -33,13 +55,30 @@ const AllPlayers = () => {
     prepareRow,
   } = tableInstance;
 
+  // Select All Checkboxes
+  function toggle(source, name) {
+    let checkboxes = document.querySelectorAll(`input[name="${name}"]`);
+    let input = document.querySelectorAll(`input[name="${source}"]`)[0];
+    checkboxes.forEach((checkbox) => {
+      if (checkbox.checked !== input.checked) {
+        checkbox.checked = input.checked;
+      }
+    });
+  }
+
   return (
     <div>
-      <button onClick={showData}>Click</button>
+      <button onClick={showCheckBoxData}>Click</button>
       <table {...getTableBodyProps}>
         <thead>
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
+              <input
+                type="checkbox"
+                name="selectAll"
+                // Selects all items
+                onClick={() => toggle("selectAll", "itemCheckbox")}
+              ></input>
               {headerGroup.headers.map((column) => (
                 <th {...column.getHeaderProps()}>{column.render("Header")}</th>
               ))}
@@ -51,7 +90,15 @@ const AllPlayers = () => {
             prepareRow(row);
             return (
               <tr {...row.getRowProps()}>
+                <input
+                  type="checkbox"
+                  name="itemCheckbox"
+                  data={JSON.stringify(row.values)}
+                ></input>
+                {/* {console.log(row.original)} */}
+                {/* {console.log(row.values["Player"])} */}
                 {row.cells.map((cell) => {
+                  // console.log(cell.render("Cell"));
                   return (
                     <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
                   );
