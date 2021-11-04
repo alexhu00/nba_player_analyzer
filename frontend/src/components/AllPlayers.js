@@ -11,6 +11,7 @@ import { COLUMNS } from "./columnsAP";
 // CSV TO JSON Convertor: https://www.convertcsv.com/csv-to-json.htm
 
 const AllPlayers = () => {
+  // Get checkboxes
   function getSelectedCheckboxItems(name) {
     let values = [];
     // grabs all checkboxes that are checked
@@ -20,11 +21,11 @@ const AllPlayers = () => {
     checkboxes.forEach((checkbox) => {
       values.push(checkbox);
     });
-
     // returns arrays of all checkboxes that are checked
     return values;
   }
 
+  // Get data from checkboxes
   const showCheckBoxData = () => {
     console.log("hello");
     let vals = getSelectedCheckboxItems("itemCheckbox");
@@ -47,8 +48,21 @@ const AllPlayers = () => {
           " is the First Player Selected!"
       );
     }
+    
   };
 
+  // Select All Checkboxes
+  function toggle(source, name) {
+    let checkboxes = document.querySelectorAll(`input[name="${name}"]`);
+    let input = document.querySelectorAll(`input[name="${source}"]`)[0];
+    checkboxes.forEach((checkbox) => {
+      if (checkbox.checked !== input.checked) {
+        checkbox.checked = input.checked;
+      }
+    });
+  }
+
+  // Creating React-Table
   const columns = useMemo(() => COLUMNS, []);
   const data = useMemo(() => players, []);
 
@@ -64,17 +78,6 @@ const AllPlayers = () => {
     rows,
     prepareRow,
   } = tableInstance;
-
-  // Select All Checkboxes
-  function toggle(source, name) {
-    let checkboxes = document.querySelectorAll(`input[name="${name}"]`);
-    let input = document.querySelectorAll(`input[name="${source}"]`)[0];
-    checkboxes.forEach((checkbox) => {
-      if (checkbox.checked !== input.checked) {
-        checkbox.checked = input.checked;
-      }
-    });
-  }
 
   return (
     <div>
@@ -118,7 +121,6 @@ const AllPlayers = () => {
           })}
         </tbody>
       </table>
-      <h1></h1>
     </div>
   );
 };
