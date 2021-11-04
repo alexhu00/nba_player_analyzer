@@ -21,7 +21,6 @@ function App() {
               <h1> Hello </h1>
             </header>
           </Route>
-
           <Route path="/Head_to_Head">
             <NavBar />
             <header className="HeadtoHead">
