@@ -35,7 +35,7 @@ const GroupPlayers = () => {
     } = tableInstance;
 
     return (
-        <div>
+        <div class="groupTable">
             <button onClick={showData}>Click</button>
             <table {...getTableBodyProps}>
                 <thead>

@@ -1,11 +1,12 @@
 table {
     font-family: Avenir, sans-serif;
     border-collapse: collapse;
-    width: 100%;
+    border-spacing: 0;
+    width: 80%;
   }
   
+
   table td, table th {
-    border: 1px solid #ddd;
     padding: 8px;
   }
   
@@ -16,7 +17,12 @@ table {
   table th {
     padding-top: 12px;
     padding-bottom: 12px;
+    border-bottom: 1px solid #ddd;
     text-align: center;
     background-color: #F7F0FF;
     color: 000000;
+  }
+
+  .groupTable {
+    padding-left: 100px;
   }

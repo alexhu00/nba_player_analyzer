@@ -23,7 +23,6 @@ function App() {
             <header className="Group">
               <h1> Hello </h1>
               <GroupPlayers></GroupPlayers>
-              {/* <AllPlayers></AllPlayers> */}
             </header>
           </Route>
 
