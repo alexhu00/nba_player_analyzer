@@ -5,6 +5,7 @@ import NavBar from "./NavBar";
 import { AllPlayers, Home } from "./components/AllPlayers";
 import PlayerCard from "./components/PlayerCard";
 import HeadtoHead from "./components/HeadtoHead";
+import GroupPlayers from "./components/groupTable";
 
 function App() {
   return (
@@ -21,7 +22,8 @@ function App() {
             <NavBar />
             <header className="Group">
               <h1> Hello </h1>
-              <AllPlayers></AllPlayers>
+              <GroupPlayers></GroupPlayers>
+              {/* <AllPlayers></AllPlayers> */}
             </header>
           </Route>
 
