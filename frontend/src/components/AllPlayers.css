@@ -1,0 +1,11 @@
+.whole-table {
+  /* display: flex;
+  /* flex-direction: column; */
+  width: 700px;
+  margin: auto;
+}
+
+td,
+th {
+  text-align: left;
+}

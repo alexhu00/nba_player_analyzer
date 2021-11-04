@@ -2,7 +2,10 @@ import logo from "./logo.svg";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NavBar from "./NavBar";
-import { Home } from "./components/AllPlayers";
+import { AllPlayers, Home } from "./components/AllPlayers";
+import PlayerCard from "./components/PlayerCard";
+import HeadtoHead from "./components/HeadtoHead";
+import GroupPlayers from "./components/groupTable";
 
 function App() {
   return (
@@ -19,13 +22,12 @@ function App() {
             <NavBar />
             <header className="Group">
               <h1> Hello </h1>
+              <GroupPlayers></GroupPlayers>
             </header>
           </Route>
           <Route path="/Head_to_Head">
             <NavBar />
-            <header className="HeadtoHead">
-              <h1> Lillard is the best </h1>
-            </header>
+            <HeadtoHead></HeadtoHead>
           </Route>
         </Switch>
       </Router>
