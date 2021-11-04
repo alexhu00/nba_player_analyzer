@@ -25,6 +25,7 @@ function App() {
               <GroupPlayers></GroupPlayers>
             </header>
           </Route>
+
           <Route path="/Head_to_Head">
             <NavBar />
             <HeadtoHead></HeadtoHead>
