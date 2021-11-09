@@ -33,14 +33,14 @@ const AllPlayers = () => {
     let vals = getSelectedCheckboxItems("itemCheckbox");
     // console.log(vals[0].getAttribute("data"));
     let objects = [];
-    if (vals.length != 0) {
+    if (vals.length !== 0) {
       for (let i = 0; i < vals.length; i++) {
         let str_data = vals[i].getAttribute("data");
         let obj_data = JSON.parse(str_data);
         objects.push(obj_data);
       }
     }
-    if (objects.length != 0) {
+    if (objects.length !== 0) {
       console.log(objects);
       alert(
         "There are " +
@@ -74,7 +74,7 @@ const AllPlayers = () => {
   });
 
   const {
-    getTableProps,
+    // getTableProps,
     getTableBodyProps,
     headerGroups,
     rows,
@@ -84,14 +84,14 @@ const AllPlayers = () => {
   return (
     <div>
       <button onClick={showCheckBoxData}>Click</button>
-      <button
+      {/* <button
         onClick={() => console.log('her')} 
         className={"reset-button"}
       >Reset</button>
       <button
         onClick={() => console.log('hahs')} 
         className={"sort-button"}
-      >Sort by Stat</button>
+      >Sort by Stat</button> */}
       <table {...getTableBodyProps} className="whole-table">
         <thead>
           {headerGroups.map((headerGroup) => (
