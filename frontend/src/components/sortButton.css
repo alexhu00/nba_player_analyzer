@@ -8,7 +8,16 @@
   border-radius: 10px;
 }
 
+.group {
+  background-color: #f7f0ff;
+}
+
 .sort-button:hover {
   color: white;
+  background-color: #237afd;
+}
+
+.group:hover {
+  color: #f7f0ff;
   background-color: #237afd;
 }
