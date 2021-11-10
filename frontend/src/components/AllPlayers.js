@@ -1,12 +1,14 @@
 import React, { useMemo } from "react";
 import "./AllPlayers.css";
 import NavBar from "../NavBar";
+import Modal from "./createGroupModal";
 import { players } from "../nba_player_data_20-21-";
 import { useTable } from "react-table";
 // import nba_player_data_20-21-- from "./nba_player_data_20-21--.json"
 import { COLUMNS } from "./columnsAP";
 import "./resetButton.css"
 import "./sortButton.css"
+
 
 // Importing React-Table : https://www.bacancytechnology.com/blog/react-table-tutorial-part-1/#4
 // TABLE TUTORIAL: https://www.youtube.com/watch?v=hson9BXU9F8
@@ -44,13 +46,13 @@ const AllPlayers = () => {
       console.log(objects);
       alert(
         "There are " +
-          objects.length.toString() +
-          " players selected and " +
-          objects[0].Player +
-          " is the First Player Selected!"
+        objects.length.toString() +
+        " players selected and " +
+        objects[0].Player +
+        " is the First Player Selected!"
       );
     }
-    
+
   };
 
   // Select All Checkboxes
@@ -63,6 +65,7 @@ const AllPlayers = () => {
       }
     });
   }
+
 
   // Creating React-Table
   const columns = useMemo(() => COLUMNS, []);
@@ -83,13 +86,20 @@ const AllPlayers = () => {
 
   return (
     <div>
+      <button
+        className={"createGroup-button"}
+      > Show create modal
+      </button>
+      <Modal />
+
+
       <button onClick={showCheckBoxData}>Click</button>
       <button
-        onClick={() => console.log('her')} 
+        onClick={() => console.log('her')}
         className={"reset-button"}
       >Reset</button>
       <button
-        onClick={() => console.log('hahs')} 
+        onClick={() => console.log('hahs')}
         className={"sort-button"}
       >Sort by Stat</button>
       <table {...getTableBodyProps} className="whole-table">
