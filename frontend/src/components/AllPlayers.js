@@ -50,7 +50,7 @@ const AllPlayers = () => {
           " is the First Player Selected!"
       );
     }
-    
+
   };
 
   // Select All Checkboxes
