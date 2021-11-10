@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useState, useMemo } from "react";
 import "./AllPlayers.css";
 import NavBar from "../NavBar";
 import Modal from "./createGroupModal";
@@ -65,7 +65,8 @@ const AllPlayers = () => {
       }
     });
   }
-
+  // show Modals 
+  const [show, setShow] = useState(false)
 
   // Creating React-Table
   const columns = useMemo(() => COLUMNS, []);
@@ -87,10 +88,11 @@ const AllPlayers = () => {
   return (
     <div>
       <button
+        onClick={() => setShow(true)}
         className={"createGroup-button"}
       > Show create modal
       </button>
-      <Modal />
+      <Modal onClose={() => setShow(false)} show={show} />
 
 
       <button onClick={showCheckBoxData}>Click</button>

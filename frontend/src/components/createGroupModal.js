@@ -1,10 +1,15 @@
 import React from "react";
 import './createGroupModal.css';
 
+// tutorial here: https://medium.com/tinyso/how-to-create-a-modal-component-in-react-from-basic-to-advanced-a3357a2a716a 
 const Modal = props => {
+    if (!props.show) {
+        return null
+    }
+
     return (
-        <div className="createGroupModal">
-            <div className="modal-content">
+        <div className="createGroupModal" onClick={props.onClose}>
+            <div className="modal-content" onClick={e => e.stopPropagation()}>
                 <div className="modal-header">
                     <h4 className="modal-title"> Create new Group </h4>
                 </div>
@@ -12,10 +17,11 @@ const Modal = props => {
                     Add fill in button here
                 </div>
                 <div className="modal-footer">
-                    <button className="button">Create Group</button>
+                    <button onClick={props.onClose} className="createGroup-button">Create Group</button>
+
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 export default Modal
