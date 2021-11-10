@@ -12,3 +12,4 @@
 ### What to improve on next sprint: 
 * Keep more transparent communication as we progress since work will start to overlap 
 * Solve package installation issues
+* move tickets whenever they're done 
