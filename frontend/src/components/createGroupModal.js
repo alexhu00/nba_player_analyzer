@@ -15,7 +15,9 @@ const Modal = props => {
                     <div className="modal-title"> Create new Group </div>
                 </div>
                 <div className="modal-body">
-                    Add fill in button here
+                    <form>
+                        <input type="textarea" value="Type in group name here" id="groupNameinput" />
+                    </form>
                 </div>
                 <div className="modal-footer">
                     <button onClick={props.onClose} className="exitcreategroup-button">Create Group</button>

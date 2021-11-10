@@ -43,6 +43,16 @@
 }
 
 .modal-body {
-    padding-bottom: 72px;
-    
+    padding-bottom: 72px; 
+    margin-left: 0px;   
 }
+
+#groupNameinput {
+    border-color: #237AFD;
+    border-radius: 20px;
+    width: 323px;
+    height: 49px;
+}
+
+
+
