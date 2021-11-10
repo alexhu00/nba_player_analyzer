@@ -9,12 +9,10 @@ const GroupHeader = () => {
                 <h3>Group Test</h3>
             </div>
             <div className="buttons">
-                {/* <div className="arrow-up"></div> */}
-                {/* <div className="arrow-down"></div> */}
                 <button className="sort-button group">
                     <span className="text">Sort By Stat</span>
-                    <span className="arrow-up"></span>
-                    <span className="arrow-down"></span>
+                    <span className="arrow-up" />
+                    <span className="arrow-down" />
                 </button>
             </div>
         </div>

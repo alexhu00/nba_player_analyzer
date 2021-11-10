@@ -1,50 +1,11 @@
+/* Unanimous for all sort-buttons */
 .sort-button {
   width: 115px;
   height: 30px;
   color: #237afd;
   font-weight: 900;
-  background-color: white;
   border: 0.5px solid #237afd;
   border-radius: 10px;
-  /* text-align:center; */
-}
-
-.sort-button:hover {
-  color: white;
-  background-color: #237afd;
-}
-
-.sort-button .text {
-  position: relative;
-}
-
-.sort-button .arrow-up {
-  position: relative;
-  left: 6px;
-  bottom: 14px;
-}
-
-.arrow-up:hover {
-  border-bottom: 5px solid #f7f0ff;
-}
-
-.arrow-down:hover {
-  border-top: 5px solid #f7f0ff;
-}
-
-.sort-button .arrow-down {
-  position: relative;
-  right: 4px;
-  top: 14px;
-}
-
-.group {
-  background-color: #f7f0ff;
-}
-
-.group:hover {
-  color: #f7f0ff;
-  background-color: #237afd;
 }
 
 .arrow-up {
@@ -63,4 +24,39 @@
   border-right: 5px solid transparent;
 
   border-top: 5px solid #237afd;
+}
+
+/* Specific for the sort buttons in the group page */
+.group {
+  background-color: #f7f0ff;
+}
+
+.group .arrow-up {
+  position: relative;
+  left: 6px;
+  bottom: 14px;
+}
+
+.group .arrow-down {
+  position: relative;
+  right: 4px;
+  top: 14px;
+}
+
+.group:hover {
+  color: white;
+  background-color: #237afd;
+}
+
+.group:hover .arrow-up {
+  border-bottom: 5px solid #f7f0ff;
+}
+
+.group:hover .arrow-down {
+  border-top: 5px solid #f7f0ff;
+}
+
+.group:hover {
+  color: #f7f0ff;
+  background-color: #237afd;
 }
