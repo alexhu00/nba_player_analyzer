@@ -9,7 +9,6 @@ import { COLUMNS } from "./columnsAP";
 import "./resetButton.css"
 import "./sortButton.css"
 
-
 // Importing React-Table : https://www.bacancytechnology.com/blog/react-table-tutorial-part-1/#4
 // TABLE TUTORIAL: https://www.youtube.com/watch?v=hson9BXU9F8
 // CSV TO JSON Convertor: https://www.convertcsv.com/csv-to-json.htm
@@ -93,7 +92,6 @@ const AllPlayers = () => {
       > Show create modal
       </button>
       <Modal onClose={() => setShow(false)} show={show} />
-
 
       <button onClick={showCheckBoxData}>Click</button>
       <button

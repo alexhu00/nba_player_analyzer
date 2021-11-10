@@ -33,7 +33,6 @@
 .modal-footer {
     padding: 0px;
     padding-bottom: 24px;
-
 }
 
 .modal-footer button {
@@ -43,8 +42,9 @@
 }
 
 .modal-body {
-    padding-bottom: 72px; 
-    margin-left: 0px;   
+    padding-bottom: 72px;   
+    padding-left: 48px;
+    float: left;
 }
 
 #groupNameinput {
@@ -52,7 +52,7 @@
     border-radius: 20px;
     width: 323px;
     height: 49px;
+    padding-left: 12px;
+    border-width: 1px;
 }
-
-
 
