@@ -1,4 +1,15 @@
-.general-group{
+.playercards-group{
     display: flex;
     flex-direction: row;
+}
+
+.overall{
+    display: flex;
+    flex-direction: column;
+}
+
+.searchbar-group{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
