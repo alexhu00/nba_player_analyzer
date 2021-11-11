@@ -3,11 +3,14 @@ import "./AllPlayers.css";
 import NavBar from "../NavBar";
 import Modal from "./createGroupModal";
 import { players } from "../nba_player_data_20-21-";
+import { player_data } from "../new_data";
 import { useTable } from "react-table";
 // import nba_player_data_20-21-- from "./nba_player_data_20-21--.json"
 import { COLUMNS } from "./columnsAP";
-import "./resetButton.css"
-import "./sortButton.css"
+import "./resetButton.css";
+import "./sortButton.css";
+import csvJSON from "../csv_json_convert";
+import "../nba_player_data_20-21.csv";
 
 // Importing React-Table : https://www.bacancytechnology.com/blog/react-table-tutorial-part-1/#4
 // TABLE TUTORIAL: https://www.youtube.com/watch?v=hson9BXU9F8
@@ -28,20 +31,24 @@ const AllPlayers = () => {
     return values;
   }
 
+  function dropDown() {
+    // document.getElementById("myDropdown").classList.toggle("show");
+  }
+
   // Get data from checkboxes
   const showCheckBoxData = () => {
     console.log("hello");
     let vals = getSelectedCheckboxItems("itemCheckbox");
     // console.log(vals[0].getAttribute("data"));
     let objects = [];
-    if (vals.length != 0) {
+    if (vals.length !== 0) {
       for (let i = 0; i < vals.length; i++) {
         let str_data = vals[i].getAttribute("data");
         let obj_data = JSON.parse(str_data);
         objects.push(obj_data);
       }
     }
-    if (objects.length != 0) {
+    if (objects.length !== 0) {
       console.log(objects);
       alert(
         "There are " +
@@ -50,8 +57,8 @@ const AllPlayers = () => {
         objects[0].Player +
         " is the First Player Selected!"
       );
+      return objects;
     }
-
   };
 
   // Select All Checkboxes
@@ -69,7 +76,7 @@ const AllPlayers = () => {
 
   // Creating React-Table
   const columns = useMemo(() => COLUMNS, []);
-  const data = useMemo(() => players, []);
+  const data = useMemo(() => player_data, []);
 
   const tableInstance = useTable({
     columns,
@@ -77,7 +84,7 @@ const AllPlayers = () => {
   });
 
   const {
-    getTableProps,
+    // getTableProps,
     getTableBodyProps,
     headerGroups,
     rows,
@@ -94,14 +101,21 @@ const AllPlayers = () => {
       <Modal onClose={() => setShow(false)} show={show} />
 
       <button onClick={showCheckBoxData}>Click</button>
-      <button
-        onClick={() => console.log('her')}
+      {/* <button
+        onClick={() => console.log('her')} 
         className={"reset-button"}
-      >Reset</button>
-      <button
-        onClick={() => console.log('hahs')}
-        className={"sort-button"}
-      >Sort by Stat</button>
+      >Reset</button> */}
+      <button onClick={dropDown()}
+        className="sort-button allPlayers">
+        <span className="text">Sort By Stat</span>
+        <span className="arrow-up" />
+        <span className="arrow-down" />
+      </button>
+      {/* <div className="dropdown-content" id="myDropdown">
+        <a href="#">Points</a>
+        <a href="#">Rebounds</a>
+        <a href="#">Assists</a>
+      </div> */}
       <table {...getTableBodyProps} className="whole-table">
         <thead>
           {headerGroups.map((headerGroup) => (
