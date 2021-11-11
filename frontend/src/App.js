@@ -2,6 +2,7 @@
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NavBar from "./NavBar";
+import Modal from "./components/createGroupModal";
 import { AllPlayers, Home } from "./components/AllPlayers";
 // import PlayerCard from "./components/PlayerCard";
 import HeadtoHead from "./components/HeadtoHead";
@@ -13,6 +14,7 @@ function App() {
       <Router>
         <Switch>
           <Route path="/" exact component={Home}>
+
             {/* <NavBar />
             <header className="App-header">
               <p></p>

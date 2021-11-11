@@ -1,6 +1,7 @@
-import React, { useMemo } from "react";
+import React, { useState, useMemo } from "react";
 import "./AllPlayers.css";
 import NavBar from "../NavBar";
+import Modal from "./createGroupModal";
 import { players } from "../nba_player_data_20-21-";
 import { player_data } from "../new_data";
 import { useTable } from "react-table";
@@ -51,10 +52,10 @@ const AllPlayers = () => {
       console.log(objects);
       alert(
         "There are " +
-          objects.length.toString() +
-          " players selected and " +
-          objects[0].Player +
-          " is the First Player Selected!"
+        objects.length.toString() +
+        " players selected and " +
+        objects[0].Player +
+        " is the First Player Selected!"
       );
       return objects;
     }
@@ -70,6 +71,8 @@ const AllPlayers = () => {
       }
     });
   }
+  // show Modals 
+  const [show, setShow] = useState(false)
 
   // Creating React-Table
   const columns = useMemo(() => COLUMNS, []);
@@ -90,13 +93,20 @@ const AllPlayers = () => {
 
   return (
     <div>
+      <button
+        onClick={() => setShow(true)}
+        className={"createGroup-button"}
+      > Show create modal
+      </button>
+      <Modal onClose={() => setShow(false)} show={show} />
+
       <button onClick={showCheckBoxData}>Click</button>
       {/* <button
         onClick={() => console.log('her')} 
         className={"reset-button"}
       >Reset</button> */}
       <button onClick={dropDown()}
-              className="sort-button allPlayers">
+        className="sort-button allPlayers">
         <span className="text">Sort By Stat</span>
         <span className="arrow-up" />
         <span className="arrow-down" />
