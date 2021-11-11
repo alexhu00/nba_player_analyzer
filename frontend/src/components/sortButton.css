@@ -43,11 +43,6 @@
   top: 14px;
 }
 
-.group:hover {
-  color: white;
-  background-color: #237afd;
-}
-
 .group:hover .arrow-up {
   border-bottom: 5px solid #f7f0ff;
 }
@@ -59,4 +54,59 @@
 .group:hover {
   color: #f7f0ff;
   background-color: #237afd;
+}
+
+/* Specific for the sort buttons in the all players page */
+.allPlayers {
+  background-color: white;
+}
+
+.allPlayers .arrow-up {
+  position: relative;
+  left: 6px;
+  bottom: 14px;
+}
+
+.allPlayers .arrow-down {
+  position: relative;
+  top: 14px;
+  right: 4px;
+}
+
+.allPlayers:hover .arrow-up {
+  border-bottom: 5px solid white;
+}
+
+.allPlayers:hover .arrow-down {
+  border-top: 5px solid white;
+}
+
+.allPlayers:hover {
+  color: white;
+  background-color: #237afd;
+}
+
+/* dropdown content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.show {
+  display: block;
 }
