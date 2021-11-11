@@ -2,12 +2,11 @@ import { players } from "../nba_player_data_20-21-";
 import "./PlayerCard.css";
 import { useState } from "react";
 
-function PlayerCard() {
+function PlayerCard(props) {
   console.log("players", players);
 
-  //For now, let's just use one player as example.
-  const player = players[0];
-  console.log("Here is our example player: ", player);
+  //Take input player ID as current playerCard to display
+  const player = players[props.player];
 
   //Parse name string to get first and last name as separate strings
   const playerName = player.Player.split(" ");
