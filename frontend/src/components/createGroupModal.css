@@ -1,0 +1,58 @@
+.createGroupModal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right:0;
+    bottom: 0;
+    background-color: rgba(0,0,26,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.modal-content {
+    width: 486px;
+    height: 300;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+}
+
+.modal-header {
+    padding-top: 80px;
+    padding-bottom: 66px;
+}
+
+.modal-title {
+    float: left;
+    font-size: 38px;
+    font: avenir; 
+    padding-left: 48px;
+}
+
+.modal-footer {
+    padding: 0px;
+    padding-bottom: 24px;
+}
+
+.modal-footer button {
+    float: right;
+    margin-bottom: 24px;
+    margin-right: 24px;
+}
+
+.modal-body {
+    padding-bottom: 72px;   
+    padding-left: 48px;
+    float: left;
+}
+
+#groupNameinput {
+    border-color: #237AFD;
+    border-radius: 20px;
+    width: 323px;
+    height: 49px;
+    padding-left: 12px;
+    border-width: 1px;
+}
+
