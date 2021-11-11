@@ -1,9 +1,10 @@
 import React, { useMemo } from "react";
-import NavBar from "../NavBar";
+// import NavBar from "../NavBar";
 import { players } from "../nba_player_data_20-21-";
 import { useTable } from "react-table";
 // import nba_player_data_20-21-- from "./nba_player_data_20-21--.json"
 import { COLUMNS } from "./columnsAP";
+import GroupHeader from "./GroupHeader.js"
 import './groupTable.css'
 
 // Importing React-Table : https://www.bacancytechnology.com/blog/react-table-tutorial-part-1/#4
@@ -27,7 +28,7 @@ const GroupPlayers = () => {
     });
 
     const {
-        getTableProps,
+        // getTableProps,
         getTableBodyProps,
         headerGroups,
         rows,
@@ -35,7 +36,8 @@ const GroupPlayers = () => {
     } = tableInstance;
 
     return (
-        <div class="groupTable">
+        <div className="groupTable">
+            <GroupHeader/>
             <button onClick={showData}>Click</button>
             <table {...getTableBodyProps}>
                 <thead>
@@ -62,7 +64,7 @@ const GroupPlayers = () => {
                     })}
                 </tbody>
             </table>
-            <h1></h1>
+            {/* <h1></h1> */}
         </div>
     );
 };

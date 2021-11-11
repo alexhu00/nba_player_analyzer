@@ -30,20 +30,24 @@ const AllPlayers = () => {
     return values;
   }
 
+  function dropDown() {
+    // document.getElementById("myDropdown").classList.toggle("show");
+  }
+
   // Get data from checkboxes
   const showCheckBoxData = () => {
     console.log("hello");
     let vals = getSelectedCheckboxItems("itemCheckbox");
     // console.log(vals[0].getAttribute("data"));
     let objects = [];
-    if (vals.length != 0) {
+    if (vals.length !== 0) {
       for (let i = 0; i < vals.length; i++) {
         let str_data = vals[i].getAttribute("data");
         let obj_data = JSON.parse(str_data);
         objects.push(obj_data);
       }
     }
-    if (objects.length != 0) {
+    if (objects.length !== 0) {
       console.log(objects);
       alert(
         "There are " +
@@ -77,7 +81,7 @@ const AllPlayers = () => {
   });
 
   const {
-    getTableProps,
+    // getTableProps,
     getTableBodyProps,
     headerGroups,
     rows,
@@ -87,12 +91,21 @@ const AllPlayers = () => {
   return (
     <div>
       <button onClick={showCheckBoxData}>Click</button>
-      <button onClick={() => console.log("her")} className={"reset-button"}>
-        Reset
+      {/* <button
+        onClick={() => console.log('her')} 
+        className={"reset-button"}
+      >Reset</button> */}
+      <button onClick={dropDown()}
+              className="sort-button allPlayers">
+        <span className="text">Sort By Stat</span>
+        <span className="arrow-up" />
+        <span className="arrow-down" />
       </button>
-      <button onClick={() => console.log("hahs")} className={"sort-button"}>
-        Sort by Stat
-      </button>
+      {/* <div className="dropdown-content" id="myDropdown">
+        <a href="#">Points</a>
+        <a href="#">Rebounds</a>
+        <a href="#">Assists</a>
+      </div> */}
       <table {...getTableBodyProps} className="whole-table">
         <thead>
           {headerGroups.map((headerGroup) => (
