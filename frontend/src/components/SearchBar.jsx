@@ -1,10 +1,11 @@
 import { useState } from "react";
 import React from "react";
+import "./SearchBar.css";
+import searchicon from "../assets/searchicon.png"
 
 function Search({ placeholder, data, updatePlayer}){
     const [filteredData, setFilteredData] = useState([]);
     const [wordEntered, setWordEntered] = useState("");
-    const [selectedPlayer, setSelectedPlayer] = useState(0);
   
     const handleFilter = (event) => {
       const searchWord = event.target.value;
@@ -32,7 +33,6 @@ function Search({ placeholder, data, updatePlayer}){
             return true;
         }
         });
-        setSelectedPlayer(index);
         updatePlayer(index);
         console.log(value.Player + 'is at index: ' + index);
         clearInput();
@@ -40,17 +40,21 @@ function Search({ placeholder, data, updatePlayer}){
 
     return(
         <div>
-            <input
-                type="text"
-                placeholder={placeholder}
-                value={wordEntered}
-                onChange={handleFilter}
-            />
+            <div className="search-group">
+                <input
+                    type="text"
+                    placeholder={placeholder}
+                    value={wordEntered}
+                    onChange={handleFilter}
+                    className="searchbar"
+                />
+                <img className="search-icon" src={searchicon} />
+            </div>
             {/* <Button onClick={clearInput}></Button> */}
             <div>
-            <div>
+            <div className="filtered-list">
                 {filteredData.map((value, key) => (
-                    <button onClick={(event) => selectPlayer(value)}>{value.Player}</button>
+                    <button className="player-option" onClick={(event) => selectPlayer(value)}>{value.Player}</button>
                 ))}
             </div>
             </div>

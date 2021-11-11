@@ -9,12 +9,10 @@ function HeadtoHead(){
     const [ playerTwo, setPlayerTwo ] = useState(1);
 
     function selectPlayerOne(playerIndex){
-        console.log("Woo! One!")
         setPlayerOne(playerIndex);
     }
 
     function selectPlayerTwo(playerIndex){
-        console.log("Woo! Two!")
         setPlayerTwo(playerIndex);
     }
 
@@ -23,8 +21,8 @@ function HeadtoHead(){
     return(
         <div className="overall">
             <div className="searchbar-group">
-                <Search placeholder="Search for a player" data={ players } updatePlayer={selectPlayerOne}/>
-                <Search placeholder="Search for a player" data={ players } updatePlayer={selectPlayerTwo}/>
+                <Search placeholder="Search by player name" data={ players } updatePlayer={selectPlayerOne}/>
+                <Search placeholder="Search by player name" data={ players } updatePlayer={selectPlayerTwo}/>
             </div>
             <div className="playercards-group">
                 <PlayerCard player={playerOne}></PlayerCard>
