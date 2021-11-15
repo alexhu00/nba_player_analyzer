@@ -1,4 +1,4 @@
-import { players } from "../nba_player_data_20-21-";
+import { players } from "../data/players_20-21-";
 import "./PlayerCard.css";
 import { useState } from "react";
 

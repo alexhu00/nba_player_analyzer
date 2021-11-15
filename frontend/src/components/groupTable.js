@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 // import NavBar from "../NavBar";
-import { players } from "../nba_player_data_20-21-";
+import { players } from "../data/players_20-21-";
 import { useTable } from "react-table";
 // import nba_player_data_20-21-- from "./nba_player_data_20-21--.json"
 import { COLUMNS } from "./columnsAP";

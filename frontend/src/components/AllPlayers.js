@@ -2,15 +2,15 @@ import React, { useState, useMemo } from "react";
 import "./AllPlayers.css";
 import NavBar from "../NavBar";
 import Modal from "./createGroupModal";
-import { players } from "../nba_player_data_20-21-";
-import { player_data } from "../new_data";
+import { players } from "../data/players_20-21-";
+import { player_data } from "../data/new_data-20-21";
 import { useTable } from "react-table";
 // import nba_player_data_20-21-- from "./nba_player_data_20-21--.json"
 import { COLUMNS } from "./columnsAP";
 import "./resetButton.css";
 import "./sortButton.css";
 import csvJSON from "../csv_json_convert";
-import "../nba_player_data_20-21.csv";
+// import "../nba_player_data_20-21.csv";
 
 // Importing React-Table : https://www.bacancytechnology.com/blog/react-table-tutorial-part-1/#4
 // TABLE TUTORIAL: https://www.youtube.com/watch?v=hson9BXU9F8
@@ -52,10 +52,10 @@ const AllPlayers = () => {
       console.log(objects);
       alert(
         "There are " +
-        objects.length.toString() +
-        " players selected and " +
-        objects[0].Player +
-        " is the First Player Selected!"
+          objects.length.toString() +
+          " players selected and " +
+          objects[0].Player +
+          " is the First Player Selected!"
       );
       return objects;
     }
@@ -71,8 +71,8 @@ const AllPlayers = () => {
       }
     });
   }
-  // show Modals 
-  const [show, setShow] = useState(false)
+  // show Modals
+  const [show, setShow] = useState(false);
 
   // Creating React-Table
   const columns = useMemo(() => COLUMNS, []);
@@ -93,10 +93,9 @@ const AllPlayers = () => {
 
   return (
     <div>
-      <button
-        onClick={() => setShow(true)}
-        className={"createGroup-button"}
-      > Show create modal
+      <button onClick={() => setShow(true)} className={"createGroup-button"}>
+        {" "}
+        Show create modal
       </button>
       <Modal onClose={() => setShow(false)} show={show} />
 
@@ -105,8 +104,7 @@ const AllPlayers = () => {
         onClick={() => console.log('her')} 
         className={"reset-button"}
       >Reset</button> */}
-      <button onClick={dropDown()}
-        className="sort-button allPlayers">
+      <button onClick={dropDown()} className="sort-button allPlayers">
         <span className="text">Sort By Stat</span>
         <span className="arrow-up" />
         <span className="arrow-down" />
