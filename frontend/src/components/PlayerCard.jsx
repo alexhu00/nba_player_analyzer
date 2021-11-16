@@ -36,16 +36,13 @@ function PlayerCard(props) {
     if (player){
       const divideFTM = (player.FT / player.FTA).toFixed(2);
       const divideFGM = (player.FG / player.FGA).toFixed(2);
-      //Fix later: how to reference integer 3 as a part of the key string?
-      //const threePTM = player.$3P;
-      const threePTM = player.PTS;
   
       dataArray = [
         { "FGM/A": divideFGM },
         { "FG%": player.FG.toFixed(2) },
         { "FTM/A": divideFTM },
         { "FT%": player.FT.toFixed(2) },
-        { "3PTM": threePTM.toFixed(2) },
+        { "STL": player.STL.toFixed(2) },
         { PTS: player.PTS.toFixed(2) },
         { REBS: player.TRB.toFixed(2) },
         { AST: player.AST.toFixed(2) },
@@ -58,7 +55,7 @@ function PlayerCard(props) {
         { "FG%": "NaN" },
         { "FTM/A": "NaN" },
         { "FT%": "NaN" },
-        { "3PTM": "NaN" },
+        { "STL": "NaN" },
         { PTS: "NaN" },
         { REBS: "NaN" },
         { AST: "NaN" },
@@ -120,7 +117,7 @@ function PlayerCard(props) {
           <p>FG%</p>
           <p className="light">FTM/A</p>
           <p>FT%</p>
-          <p>3PTM</p>
+          <p>STL</p>
           <p>PTS</p>
           <p>REBS</p>
           <p>AST</p>
