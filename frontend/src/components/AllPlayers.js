@@ -32,7 +32,11 @@ const AllPlayers = () => {
   }
 
   const dropDown = () => {
-    console.log(document.getElementById('dropdown').classList.toggle("show"))
+    document.getElementById('dropdown').classList.toggle("show")
+  }
+  
+  const sortPoints = () => {
+    
   }
 
   // Get data from checkboxes
@@ -105,14 +109,13 @@ const AllPlayers = () => {
         onClick={() => console.log('her')} 
         className={"reset-button"}
       >Reset</button> */}
-      <button onClick={() => dropDown()}
-              className="sort-button allPlayers">
+      <button onClick={() => dropDown()} className="sort-button allPlayers">
         <span className="text">Sort By Stat</span>
         <span className="arrow-up" />
         <span className="arrow-down" />
       </button>
       <div id="dropdown" className="dropdown-content">
-        <button>Points</button>
+        <button onClick={() => sortPoints()}>Points</button>
         <button>Rebounds</button>
         <button>Assists</button>
       </div>
