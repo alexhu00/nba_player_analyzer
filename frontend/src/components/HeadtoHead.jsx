@@ -8,15 +8,16 @@ function HeadtoHead() {
   const [playerOne, setPlayerOne] = useState(0);
   const [playerTwo, setPlayerTwo] = useState(1);
 
+    //Keep track of player selected by holding and passing their index
+    //Sets index of playerOne
     function selectPlayerOne(playerIndex){
         setPlayerOne(playerIndex);
     }
 
+    //Sets index of playerTwo
     function selectPlayerTwo(playerIndex){
         setPlayerTwo(playerIndex);
     }
-
-  console.log("players", player_data);
 
     return(
         <div className="overall">
