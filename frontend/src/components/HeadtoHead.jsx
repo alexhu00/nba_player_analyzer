@@ -1,12 +1,12 @@
 import PlayerCard from "./PlayerCard";
 import Search from "./SearchBar";
 import "./HeadtoHead.css";
-import { players } from "../nba_player_data_20-21-";
+import { players } from "../data/players_20-21-";
 import { useState, React } from "react";
 
-function HeadtoHead(){
-    const [ playerOne, setPlayerOne ] = useState(0);
-    const [ playerTwo, setPlayerTwo ] = useState(1);
+function HeadtoHead() {
+  const [playerOne, setPlayerOne] = useState(0);
+  const [playerTwo, setPlayerTwo] = useState(1);
 
     function selectPlayerOne(playerIndex){
         setPlayerOne(playerIndex);
@@ -16,7 +16,7 @@ function HeadtoHead(){
         setPlayerTwo(playerIndex);
     }
 
-    console.log("players", players);
+  console.log("players", players);
 
     return(
         <div className="overall">

@@ -1,0 +1,22 @@
+.group-header {
+  display: flex;
+  background-color: #f7f0ff;
+  width: 70%;
+  margin: auto;
+  justify-content: space-between;
+}
+
+.group-name {
+  color: #6001d1;
+  display: flex;
+  position: relative;
+  left: 20px;
+  align-items: center;
+}
+
+.buttons {
+  display: flex;
+  position: relative;
+  right: 20px;
+  align-items: center;
+}

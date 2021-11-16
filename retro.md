@@ -13,3 +13,16 @@
 * Keep more transparent communication as we progress since work will start to overlap 
 * Solve package installation issues
 * move tickets whenever they're done 
+
+
+# Week 2 Sprint 
+### Thing that went well
+* People were able to pick up on work that others had trouble with 
+* Good communication between team members within subgroups (e.g 2 people working on a feature dependent on each other kept each other in the loop) 
+* There was clear demos in our synchronous meetings to see individual progress
+
+### Things that didn't go too well
+* Not updating of tickets in real time
+
+### What to improve on next sprint: 
+* We’ll update tickets during our synchronous meetings so everyone is aligned on what to do next

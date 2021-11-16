@@ -1,9 +1,10 @@
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NavBar from "./NavBar";
+import Modal from "./components/createGroupModal";
 import { AllPlayers, Home } from "./components/AllPlayers";
-import PlayerCard from "./components/PlayerCard";
+// import PlayerCard from "./components/PlayerCard";
 import HeadtoHead from "./components/HeadtoHead";
 import GroupPlayers from "./components/groupTable";
 
@@ -13,6 +14,7 @@ function App() {
       <Router>
         <Switch>
           <Route path="/" exact component={Home}>
+
             {/* <NavBar />
             <header className="App-header">
               <p></p>
@@ -21,7 +23,7 @@ function App() {
           <Route path="/Group">
             <NavBar />
             <header className="Group">
-              <h1> Hello </h1>
+              <h1> Group Page </h1>
               <GroupPlayers></GroupPlayers>
             </header>
           </Route>
