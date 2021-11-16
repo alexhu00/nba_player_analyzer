@@ -42,13 +42,13 @@ function PlayerCard(props) {
   
       dataArray = [
         { "FGM/A": divideFGM },
-        { "FG%": player.FG },
+        { "FG%": player.FG.toFixed(2) },
         { "FTM/A": divideFTM },
-        { "FT%": player.FT },
-        { "3PTM": threePTM },
-        { PTS: player.PTS },
-        { REBS: player.TRB },
-        { AST: player.AST },
+        { "FT%": player.FT.toFixed(2) },
+        { "3PTM": threePTM.toFixed(2) },
+        { PTS: player.PTS.toFixed(2) },
+        { REBS: player.TRB.toFixed(2) },
+        { AST: player.AST.toFixed(2) },
       ];
     }
     //Otherwise, just produce NaN values for everything
