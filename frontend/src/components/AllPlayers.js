@@ -9,6 +9,7 @@ import { useTable } from "react-table";
 import { COLUMNS } from "./columnsAP";
 import "./resetButton.css";
 import "./sortButton.css";
+import "./buttonStyling.css";
 import csvJSON from "../csv_json_convert";
 // import "../nba_player_data_20-21.csv";
 
@@ -52,10 +53,10 @@ const AllPlayers = () => {
       console.log(objects);
       alert(
         "There are " +
-          objects.length.toString() +
-          " players selected and " +
-          objects[0].Player +
-          " is the First Player Selected!"
+        objects.length.toString() +
+        " players selected and " +
+        objects[0].Player +
+        " is the First Player Selected!"
       );
       return objects;
     }
@@ -93,22 +94,32 @@ const AllPlayers = () => {
 
   return (
     <div>
-      <button onClick={() => setShow(true)} className={"createGroup-button"}>
-        {" "}
-        Show create modal
-      </button>
-      <Modal onClose={() => setShow(false)} show={show} />
-
-      <button onClick={showCheckBoxData}>Click</button>
-      {/* <button
+      <div className={"actionButtonsGroup"}>
+        <button onClick={() => setShow(true)} className={"createGroup-button"}>
+          {" "}
+          Create new group
+        </button>
+        <Modal onClose={() => setShow(false)} show={show} />
+        <div class="divider" />
+        <button onClick={() => setShow(true)} className={"addToTeam-button"}>
+          {" "}
+          Add to group
+        </button>
+        <div class="divider" />
+        <Modal onClose={() => setShow(false)} show={show} className={"addToExisting"} />
+        <button onClick={showCheckBoxData}>Click</button>
+        {/* <button
         onClick={() => console.log('her')} 
         className={"reset-button"}
       >Reset</button> */}
-      <button onClick={dropDown()} className="sort-button allPlayers">
-        <span className="text">Sort By Stat</span>
-        <span className="arrow-up" />
-        <span className="arrow-down" />
-      </button>
+        <div class="divider" />
+        <button onClick={dropDown()} className="sort-button allPlayers">
+          <span className="text">Sort By Stat</span>
+          <span className="arrow-up" />
+          <span className="arrow-down" />
+        </button>
+      </div>
+
       {/* <div className="dropdown-content" id="myDropdown">
         <a href="#">Points</a>
         <a href="#">Rebounds</a>
