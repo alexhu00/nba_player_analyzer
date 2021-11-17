@@ -39,6 +39,7 @@ class MultiModal extends React.Component {
                         Create New Group
                     </div>
                     <Modal
+
                         isOpen={
                             this.state.showModal &&
                             this.state.activeModal === "newGroup"
