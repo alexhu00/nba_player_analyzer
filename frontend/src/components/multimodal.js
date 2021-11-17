@@ -47,7 +47,18 @@ class MultiModal extends React.Component {
                     >
                         <div className="content">
                             <button className="close" onClick={this.handleCloseModal}>X</button>
-                            <p>newGroup content in here</p>
+                            <div className="modal-header">
+                                <div className="modal-title"> Create new Group </div>
+                            </div>
+                            <div className="modal-body">
+                                <form>
+                                    <input type="textarea" value="Type in group name here" id="groupNameinput" />
+                                </form>
+                            </div>
+                            <div className="modal-footer">
+                                <button className="exitcreategroup-button" onClick={this.handleCloseModal}>Create Group</button>
+
+                            </div>
                         </div>
 
                     </Modal>

@@ -96,9 +96,8 @@ const AllPlayers = () => {
 
   return (
     <div>
-      <MultiModal />
       <div className={"actionButtonsGroup"}>
-        <button onClick={() => setShow(true)} className={"createGroup-button"}>
+        {/* <button onClick={() => setShow(true)} className={"createGroup-button"}>
           {" "}
           Create new group
         </button>
@@ -109,7 +108,9 @@ const AllPlayers = () => {
           Add to group
         </button>
         <div class="divider" />
-        <AddToExistingModal onClose={() => setShow(false)} show={show} className={"addToExisting"} />
+        <AddToExistingModal onClose={() => setShow(false)} show={show} className={"addToExisting"} /> */}
+        <MultiModal />
+
         <button onClick={showCheckBoxData}>Click</button>
         {/* <button
         onClick={() => console.log('her')} 
