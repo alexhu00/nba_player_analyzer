@@ -2,6 +2,7 @@ import React, { useState, useMemo } from "react";
 import "./AllPlayers.css";
 import NavBar from "../NavBar";
 import Modal from "./createGroupModal";
+import AddToExistingModal from "./createExistingGroupsModal";
 import { players } from "../data/players_20-21-";
 import { player_data } from "../data/new_data-20-21";
 import { useTable } from "react-table";
@@ -106,7 +107,7 @@ const AllPlayers = () => {
           Add to group
         </button>
         <div class="divider" />
-        <Modal onClose={() => setShow(false)} show={show} className={"addToExisting"} />
+        <AddToExistingModal onClose={() => setShow(false)} show={show} className={"addToExisting"} />
         <button onClick={showCheckBoxData}>Click</button>
         {/* <button
         onClick={() => console.log('her')} 

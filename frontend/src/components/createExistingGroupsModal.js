@@ -1,4 +1,5 @@
 import React from "react";
+import './createExistingGroupsModal.css';
 
 const AddToExistingModal = props => {
     if (!props.show) {
@@ -7,16 +8,41 @@ const AddToExistingModal = props => {
 
     return (
         <div className="addToExistingModal" onClick={props.onClose}>
-            <div className="modal-content" onClick={e => e.stopPropagation()}>
-                <div className="modal-header">
-                    <div className="modal-title"> Add to existing group </div>
+            <div className="modal-content-existing-modal" onClick={e => e.stopPropagation()}>
+                <div className="modal-header-existing-modal">
+                    <div className="modal-title-existing-modal"> Add to existing group </div>
                 </div>
-                <div className="modal-body">
-                    <form>
-                        <h1>select group</h1>
-                    </form>
+                <div className="modal-body-existing-modal">
+                    <label class="container">One
+                        <input type="checkbox"></input>
+                        <span className="checkmark"></span>
+                    </label>
+
+                    <label class="container">Two
+                        <input type="checkbox"></input>
+                        <span className="checkmark"></span>
+                    </label>
+                    <label class="container">fourteen
+                        <input type="checkbox"></input>
+                        <span className="checkmark"></span>
+                    </label>
+                    <label class="container">One
+                        <input type="checkbox"></input>
+                        <span className="checkmark"></span>
+                    </label>
+
+                    <label class="container">Two
+                        <input type="checkbox"></input>
+                        <span className="checkmark"></span>
+                    </label>
+                    <label class="container">fourteen
+                        <input type="checkbox"></input>
+                        <span className="checkmark"></span>
+                    </label>
+
+
                 </div>
-                <div className="modal-footer">
+                <div className="modal-footer-existing-modal">
                     <button onClick={props.onClose} className="exitcreategroup-button">Add</button>
 
                 </div>
