@@ -35,6 +35,7 @@
     padding-right: 362px;
     float: left;
     max-height: 124px;
+    max-width: 200px;
     overflow-y:auto
 }
 
