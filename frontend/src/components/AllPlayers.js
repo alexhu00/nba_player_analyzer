@@ -1,7 +1,8 @@
 import React, { useState, useMemo } from "react";
 import "./AllPlayers.css";
 import NavBar from "../NavBar";
-import Modal from "./createGroupModal";
+import GroupModal from "./createGroupModal";
+import MultiModal from "./multimodal";
 import AddToExistingModal from "./createExistingGroupsModal";
 import { players } from "../data/players_20-21-";
 import { player_data } from "../data/new_data-20-21";
@@ -95,12 +96,13 @@ const AllPlayers = () => {
 
   return (
     <div>
+      <MultiModal />
       <div className={"actionButtonsGroup"}>
         <button onClick={() => setShow(true)} className={"createGroup-button"}>
           {" "}
           Create new group
         </button>
-        <Modal onClose={() => setShow(false)} show={show} />
+        <GroupModal onClose={() => setShow(false)} show={show} />
         <div class="divider" />
         <button onClick={() => setShow(true)} className={"addToTeam-button"}>
           {" "}
