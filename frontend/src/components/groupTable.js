@@ -38,7 +38,7 @@ const GroupPlayers = (props) => {
 
   return (
     <div className="groupTable">
-      <GroupHeader />
+      <GroupHeader name={props.name}/>
       <button onClick={showData}>Click</button>
       <table {...getTableBodyProps}>
         <thead>

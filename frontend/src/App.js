@@ -9,13 +9,29 @@ import HeadtoHead from "./components/HeadtoHead";
 import GroupPlayers from "./components/groupTable";
 const groupData = require("./data/groupDataFake.json");
 
-function App() {
+const App = () => {
+  const showGroups = () => {
+    let groupList = [];
+    for (let i = 0; i < groupData.length; i++) {
+      groupList.push(
+        <GroupPlayers
+          data={Object.entries(groupData[i])[2][1]} // 2 being players category
+          name={Object.entries(groupData[i])[1][1]} // 1 being name category
+        ></GroupPlayers>
+      );
+    }
+    return groupList;
+  };
+
+  const renderGroups = () => {
+    return <div>{showGroups()}</div>;
+  };
+
   return (
     <div className="App">
       <Router>
         <Switch>
           <Route path="/" exact component={Home}>
-
             {/* <NavBar />
             <header className="App-header">
               <p></p>
@@ -25,7 +41,10 @@ function App() {
             <NavBar />
             <header className="Group">
               <h1> Group Page </h1>
-              <GroupPlayers data={groupData}></GroupPlayers>
+              <div>{renderGroups()}</div>
+              {/* <GroupPlayers
+                data={Object.entries(groupData[0])[2][1]}
+              ></GroupPlayers> */}
             </header>
           </Route>
 
@@ -37,6 +56,6 @@ function App() {
       </Router>
     </div>
   );
-}
+};
 
 export default App;

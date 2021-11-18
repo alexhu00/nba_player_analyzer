@@ -50,23 +50,15 @@ const AllPlayers = () => {
         objects.push(obj_data);
       }
     }
+
+    // Adds to Gropu 1 Currently
     if (objects.length !== 0) {
-      console.log(objects);
-      alert(
-        "There are " +
-          objects.length.toString() +
-          " players selected and " +
-          objects[0].Player +
-          " is the First Player Selected!"
-      );
-
+      console.log(Object.entries(groupData[0])[2][1]); // 0 for object, 2 for players, 1 for the array
       for (let i = 0; i < objects.length; i++) {
-        // adds the objects to the MyFridge and deletes it from shopping list
-        groupData.push(objects[i]);
+        // groupData.push(objects[i]);
+        Object.entries(groupData[0])[2][1].push(objects[i]);
       }
-
-      console.log(groupData);
-
+      // console.log(Object.entries(groupData[0]));
       return objects;
     }
   };
@@ -109,7 +101,7 @@ const AllPlayers = () => {
       </button>
       <Modal onClose={() => setShow(false)} show={show} />
 
-      <button onClick={showCheckBoxData}>Click</button>
+      <button onClick={showCheckBoxData}>Add to Group 1</button>
       {/* <button
         onClick={() => console.log('her')} 
         className={"reset-button"}
