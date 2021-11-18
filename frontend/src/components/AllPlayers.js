@@ -13,6 +13,8 @@ import "./resetButton.css";
 import "./sortButton.css";
 import "./buttonStyling.css";
 import csvJSON from "../csv_json_convert";
+const groupData = require("../data/groupDataFake.json");
+
 // import "../nba_player_data_20-21.csv";
 
 // Importing React-Table : https://www.bacancytechnology.com/blog/react-table-tutorial-part-1/#4
@@ -39,8 +41,7 @@ const AllPlayers = () => {
   }
 
   // Get data from checkboxes
-  const showCheckBoxData = () => {
-    console.log("hello");
+  const addToGroup = () => {
     let vals = getSelectedCheckboxItems("itemCheckbox");
     // console.log(vals[0].getAttribute("data"));
     let objects = [];
@@ -51,15 +52,48 @@ const AllPlayers = () => {
         objects.push(obj_data);
       }
     }
+
+    // uncheck all checkboxes
+    let checkboxes = document.querySelectorAll(`input[name="itemCheckbox"]`);
+    checkboxes.forEach((checkbox) => {
+      checkbox.checked = false;
+    });
+
+    // Adds to Gropu 1 Currently
     if (objects.length !== 0) {
-      console.log(objects);
-      alert(
-        "There are " +
-        objects.length.toString() +
-        " players selected and " +
-        objects[0].Player +
-        " is the First Player Selected!"
-      );
+      console.log(Object.entries(groupData[0])[2][1]); // 0 for object, 2 for players, 1 for the array
+      for (let i = 0; i < objects.length; i++) {
+        // groupData.push(objects[i]);
+        Object.entries(groupData[0])[2][1].push(objects[i]);
+      }
+      // console.log(Object.entries(groupData[0]));
+      return objects;
+    }
+  };
+
+  // Get data from checkboxes
+  const createGroup = () => {
+    let vals = getSelectedCheckboxItems("itemCheckbox");
+    // console.log(vals[0].getAttribute("data"));
+    let objects = [];
+    if (vals.length !== 0) {
+      for (let i = 0; i < vals.length; i++) {
+        let str_data = vals[i].getAttribute("data");
+        let obj_data = JSON.parse(str_data);
+        objects.push(obj_data);
+      }
+    }
+
+    // uncheck all checkboxes
+    let checkboxes = document.querySelectorAll(`input[name="itemCheckbox"]`);
+    checkboxes.forEach((checkbox) => {
+      checkbox.checked = false;
+    });
+
+    if (objects.length !== 0) {
+      let newGroup = { id: 6, name: "New Group", players: objects };
+      groupData.push(newGroup);
+      console.log(groupData);
       return objects;
     }
   };
@@ -111,8 +145,9 @@ const AllPlayers = () => {
         <AddToExistingModal onClose={() => setShow(false)} show={show} className={"addToExisting"} /> */}
         <MultiModal />
 
-        <button onClick={showCheckBoxData}>Click</button>
-        {/* <button
+      <button onClick={addToGroup}>Add to Group 1</button>
+      <button onClick={createGroup}>Create Group</button>
+      {/* <button
         onClick={() => console.log('her')} 
         className={"reset-button"}
       >Reset</button> */}
