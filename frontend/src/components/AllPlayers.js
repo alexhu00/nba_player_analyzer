@@ -68,6 +68,33 @@ const AllPlayers = () => {
     }
   };
 
+  // Get data from checkboxes
+  const createGroup = () => {
+    let vals = getSelectedCheckboxItems("itemCheckbox");
+    // console.log(vals[0].getAttribute("data"));
+    let objects = [];
+    if (vals.length !== 0) {
+      for (let i = 0; i < vals.length; i++) {
+        let str_data = vals[i].getAttribute("data");
+        let obj_data = JSON.parse(str_data);
+        objects.push(obj_data);
+      }
+    }
+
+    // uncheck all checkboxes
+    let checkboxes = document.querySelectorAll(`input[name="itemCheckbox"]`);
+    checkboxes.forEach((checkbox) => {
+      checkbox.checked = false;
+    });
+
+    if (objects.length !== 0) {
+      let newGroup = { id: 6, name: "New Group", players: objects };
+      groupData.push(newGroup);
+      console.log(groupData);
+      return objects;
+    }
+  };
+
   // Select All Checkboxes
   function toggle(source, name) {
     let checkboxes = document.querySelectorAll(`input[name="${name}"]`);
@@ -107,6 +134,7 @@ const AllPlayers = () => {
       <Modal onClose={() => setShow(false)} show={show} />
 
       <button onClick={addToGroup}>Add to Group 1</button>
+      <button onClick={createGroup}>Create Group</button>
       {/* <button
         onClick={() => console.log('her')} 
         className={"reset-button"}

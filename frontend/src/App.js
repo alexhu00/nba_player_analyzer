@@ -1,5 +1,6 @@
 // import logo from "./logo.svg";
 import "./App.css";
+import { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NavBar from "./NavBar";
 import Modal from "./components/createGroupModal";
@@ -7,26 +8,10 @@ import { AllPlayers, Home } from "./components/AllPlayers";
 // import PlayerCard from "./components/PlayerCard";
 import HeadtoHead from "./components/HeadtoHead";
 import GroupPlayers from "./components/groupTable";
-const groupData = require("./data/groupDataFake.json");
+import GroupTables from "./components/groupTables";
+const groupedData = require("./data/groupDataFake.json");
 
 const App = () => {
-  const showGroups = () => {
-    let groupList = [];
-    for (let i = 0; i < groupData.length; i++) {
-      groupList.push(
-        <GroupPlayers
-          data={Object.entries(groupData[i])[2][1]} // 2 being players category
-          name={Object.entries(groupData[i])[1][1]} // 1 being name category
-        ></GroupPlayers>
-      );
-    }
-    return groupList;
-  };
-
-  const renderGroups = () => {
-    return <div>{showGroups()}</div>;
-  };
-
   return (
     <div className="App">
       <Router>
@@ -41,7 +26,7 @@ const App = () => {
             <NavBar />
             <header className="Group">
               <h1> Group Page </h1>
-              <div>{renderGroups()}</div>
+              <GroupTables></GroupTables>
               {/* <GroupPlayers
                 data={Object.entries(groupData[0])[2][1]}
               ></GroupPlayers> */}
