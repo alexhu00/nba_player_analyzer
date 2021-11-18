@@ -3,7 +3,7 @@ import './createGroupModal.css';
 import './createGroupbutton.css';
 
 // tutorial here: https://medium.com/tinyso/how-to-create-a-modal-component-in-react-from-basic-to-advanced-a3357a2a716a 
-const Modal = props => {
+const GroupModal = props => {
     if (!props.show) {
         return null
     }
@@ -27,4 +27,4 @@ const Modal = props => {
         </div >
     )
 }
-export default Modal
+export default GroupModal

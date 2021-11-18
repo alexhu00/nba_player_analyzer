@@ -1,0 +1,40 @@
+.actionButtonsGroup {
+  padding-bottom: 16px;
+}
+
+.divider{
+  width: 28px;
+  height:auto;
+  display:inline-block;
+}
+
+
+.createGroup-button {
+    width: 152px;
+  height: 30px;
+  color: #237afd;
+  font-weight: 900;
+  background-color: white;
+  border: 0.1rem solid #237afd;
+  border-radius: 10px;
+}
+
+.createGroup-button:hover {
+    color: white; 
+  background-color: #237afd;
+}
+
+.addToTeam-button {
+    width: 125px;
+  height: 30px;
+  color: #237afd;
+  font-weight: 900;
+  background-color: white;
+  border: 0.1rem solid #237afd;
+  border-radius: 10px;
+}
+
+.addToTeam-button:hover {
+    color: white; 
+    background-color: #237afd;
+}
