@@ -2,30 +2,30 @@
   padding-bottom: 16px;
 }
 
-.divider{
+.divider {
   width: 28px;
-  height:auto;
-  display:inline-block;
+  height: auto;
+  display: inline-block;
 }
 
-
 .createGroup-button {
-    width: 152px;
+  width: 152px;
   height: 30px;
   color: #237afd;
   font-weight: 900;
   background-color: white;
   border: 0.1rem solid #237afd;
   border-radius: 10px;
+  margin-right: 10px;
 }
 
 .createGroup-button:hover {
-    color: white; 
+  color: white;
   background-color: #237afd;
 }
 
 .addToTeam-button {
-    width: 125px;
+  width: 125px;
   height: 30px;
   color: #237afd;
   font-weight: 900;
@@ -35,6 +35,6 @@
 }
 
 .addToTeam-button:hover {
-    color: white; 
-    background-color: #237afd;
+  color: white;
+  background-color: #237afd;
 }
