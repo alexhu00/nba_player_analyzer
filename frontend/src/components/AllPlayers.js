@@ -10,6 +10,8 @@ import { COLUMNS } from "./columnsAP";
 import "./resetButton.css";
 import "./sortButton.css";
 import csvJSON from "../csv_json_convert";
+const groupData = require("../data/groupDataFake.json");
+
 // import "../nba_player_data_20-21.csv";
 
 // Importing React-Table : https://www.bacancytechnology.com/blog/react-table-tutorial-part-1/#4
@@ -57,6 +59,14 @@ const AllPlayers = () => {
           objects[0].Player +
           " is the First Player Selected!"
       );
+
+      for (let i = 0; i < objects.length; i++) {
+        // adds the objects to the MyFridge and deletes it from shopping list
+        groupData.push(objects[i]);
+      }
+
+      console.log(groupData);
+
       return objects;
     }
   };

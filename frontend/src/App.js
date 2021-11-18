@@ -7,6 +7,7 @@ import { AllPlayers, Home } from "./components/AllPlayers";
 // import PlayerCard from "./components/PlayerCard";
 import HeadtoHead from "./components/HeadtoHead";
 import GroupPlayers from "./components/groupTable";
+const groupData = require("./data/groupDataFake.json");
 
 function App() {
   return (
@@ -24,7 +25,7 @@ function App() {
             <NavBar />
             <header className="Group">
               <h1> Group Page </h1>
-              <GroupPlayers></GroupPlayers>
+              <GroupPlayers data={groupData}></GroupPlayers>
             </header>
           </Route>
 
