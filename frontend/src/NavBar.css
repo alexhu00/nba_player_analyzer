@@ -13,6 +13,7 @@ nav a {
   margin: 20px;
 } */
 
+
 .nav-group{
   display: flex;
   flex-direction: row;
@@ -26,6 +27,7 @@ nav a {
   color: #237AFD;
   font-size: 20px;
   padding: 10px;
+  text-decoration: none;
 }
 
 .group-page{
@@ -46,5 +48,10 @@ nav a {
 .all-players:hover, .group-page:hover, .head-to-head:hover{
   background-color: #237AFD;
   cursor: pointer;
+  color: white;
+}
+
+.active{
+  background-color:#237AFD;
   color: white;
 }
