@@ -7,6 +7,7 @@ import Modal from "./components/createGroupModal";
 import { AllPlayers, Home } from "./components/AllPlayers";
 // import PlayerCard from "./components/PlayerCard";
 import HeadtoHead from "./components/HeadtoHead";
+import HomePage from "./HomePage";
 import GroupPlayers from "./components/groupTable";
 import GroupTables from "./components/groupTables";
 const groupedData = require("./data/groupDataFake.json");
@@ -17,10 +18,12 @@ const App = () => {
       <Router>
         <Switch>
           <Route path="/" exact component={Home}>
-            {/* <NavBar />
-            <header className="App-header">
-              <p></p>
-            </header> */}
+            <NavBar />
+            <HomePage></HomePage>
+          </Route>
+          <Route path="/Players">
+            <NavBar />
+            <AllPlayers></AllPlayers>
           </Route>
           <Route path="/Group">
             <NavBar />

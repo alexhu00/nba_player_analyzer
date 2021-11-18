@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./NavBar.css";
 
 // NavBar from example project
@@ -8,15 +8,17 @@ const NavBar = (props) => {
   return (
     <nav>
       <div className="nav-group">
-        <Link to="/">
-          <button className="all-players">All Players</button>
-        </Link>
-        <Link to="/Group">
-          <button className="group-page">Group</button>
-        </Link>
-        <Link to="/Head_to_Head">
-        <button className="head-to-head">Head to Head</button>
-        </Link>
+        <div>
+          <NavLink to="/Players" className="all-players" activeClassName="active">
+            All Players
+          </NavLink>
+          <NavLink to="/Group" className="group-page" activeClassName="active">
+            Group
+          </NavLink>
+          <NavLink to="/Head_to_Head" className="head-to-head" activeClassName="active">
+            Head to Head
+          </NavLink>
+        </div>
       </div>
     </nav>
   );
