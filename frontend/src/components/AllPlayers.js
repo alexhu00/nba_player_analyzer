@@ -145,9 +145,13 @@ const AllPlayers = () => {
         <AddToExistingModal onClose={() => setShow(false)} show={show} className={"addToExisting"} /> */}
         <MultiModal />
 
-      <button onClick={addToGroup}>Add to Group 1</button>
-      <button onClick={createGroup}>Create Group</button>
-      {/* <button
+        <button onClick={addToGroup} className="createGroup-button">
+          Add to Group 1
+        </button>
+        <button onClick={createGroup} className="createGroup-button">
+          Create Group
+        </button>
+        {/* <button
         onClick={() => console.log('her')} 
         className={"reset-button"}
       >Reset</button> */}
