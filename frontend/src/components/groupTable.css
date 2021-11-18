@@ -5,6 +5,9 @@ table {
   width: 70%;
   margin: auto;
 }
+.groupTable {
+  padding-bottom: 50px;
+}
 
 table td,
 table th {

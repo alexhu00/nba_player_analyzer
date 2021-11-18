@@ -4,6 +4,7 @@
   width: 70%;
   margin: auto;
   justify-content: space-between;
+  border-bottom: 0.02rem solid rgb(170, 50, 220, 0.6);
 }
 
 .group-name {
