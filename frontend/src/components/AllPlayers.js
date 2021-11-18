@@ -38,8 +38,7 @@ const AllPlayers = () => {
   }
 
   // Get data from checkboxes
-  const showCheckBoxData = () => {
-    console.log("hello");
+  const addToGroup = () => {
     let vals = getSelectedCheckboxItems("itemCheckbox");
     // console.log(vals[0].getAttribute("data"));
     let objects = [];
@@ -50,6 +49,12 @@ const AllPlayers = () => {
         objects.push(obj_data);
       }
     }
+
+    // uncheck all checkboxes
+    let checkboxes = document.querySelectorAll(`input[name="itemCheckbox"]`);
+    checkboxes.forEach((checkbox) => {
+      checkbox.checked = false;
+    });
 
     // Adds to Gropu 1 Currently
     if (objects.length !== 0) {
@@ -101,7 +106,7 @@ const AllPlayers = () => {
       </button>
       <Modal onClose={() => setShow(false)} show={show} />
 
-      <button onClick={showCheckBoxData}>Add to Group 1</button>
+      <button onClick={addToGroup}>Add to Group 1</button>
       {/* <button
         onClick={() => console.log('her')} 
         className={"reset-button"}
