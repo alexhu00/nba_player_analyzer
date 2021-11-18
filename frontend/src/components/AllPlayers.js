@@ -197,8 +197,6 @@ const Home = () => (
   <div>
     <NavBar />
     <header>
-      <h1>Welcome to All Players</h1>
-
       <AllPlayers />
     </header>
   </div>

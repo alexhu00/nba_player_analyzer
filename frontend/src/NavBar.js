@@ -7,9 +7,17 @@ import "./NavBar.css";
 const NavBar = (props) => {
   return (
     <nav>
-      <Link to="/">All Players</Link>
-      <Link to="/Group">Group</Link>
-      <Link to="/Head_to_Head">Head to Head</Link>
+      <div className="nav-group">
+        <Link to="/">
+          <button className="all-players">All Players</button>
+        </Link>
+        <Link to="/Group">
+          <button className="group-page">Group</button>
+        </Link>
+        <Link to="/Head_to_Head">
+        <button className="head-to-head">Head to Head</button>
+        </Link>
+      </div>
     </nav>
   );
 };

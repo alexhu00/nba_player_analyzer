@@ -1,19 +1,50 @@
 /* CSS NavBar from example project */
 
-nav {
-  border-width: 1px 0 1px 19px; /* no border on left or right */
+/* nav {
+  border-width: 1px 0 1px 19px;
   padding: 20px;
-  margin: 20px 0; /* no margin on left or right */
+  margin: 20px 0;
   text-align: center;
 }
 
 nav a {
   text-decoration: none;
-  color: rgb(0, 105, 204);
+  color: #237AFD;
   margin: 20px;
+} */
+
+.nav-group{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0px;
+}
+.all-players, .group-page, .head-to-head{
+  border: 1px solid #237AFD;
+  background-color: white;
+  color: #237AFD;
+  font-size: 20px;
+  padding: 10px;
 }
 
-nav a:hover {
-  text-decoration: underline;
-  background-color: rgb(78, 190, 255);
+.group-page{
+  border-left: 0px;
+  border-right: 0px;
+}
+
+.head-to-head{
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.all-players{
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.all-players:hover, .group-page:hover, .head-to-head:hover{
+  background-color: #237AFD;
+  cursor: pointer;
+  color: white;
 }
