@@ -13,12 +13,12 @@ import "./groupTable.css";
 // CSV TO JSON Convertor: https://www.convertcsv.com/csv-to-json.htm
 
 const GroupPlayers = (props) => {
-  const showData = () => {
-    // const d = JSON.parse(players);
-    console.log("hello");
-    // console.log(Object.entries(players));
-    console.log(props.data);
-  };
+  // const showData = () => {
+  //   // const d = JSON.parse(players);
+  //   console.log("hello");
+  //   // console.log(Object.entries(players));
+  //   console.log(props.data);
+  // };
 
   const columns = useMemo(() => COLUMNS, []);
   const data = useMemo(() => props.data, []);
@@ -38,8 +38,7 @@ const GroupPlayers = (props) => {
 
   return (
     <div className="groupTable">
-      <GroupHeader name={props.name}/>
-      <button onClick={showData}>Click</button>
+      <GroupHeader name={props.name} />
       <table {...getTableBodyProps}>
         <thead>
           {headerGroups.map((headerGroup) => (
