@@ -1,0 +1,118 @@
+.addToExistingModal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right:0;
+    bottom: 0;
+    background-color: rgba(0,0,26,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content-existing-modal {
+    width: 486px;
+    height: 324px;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+}
+
+.modal-header-existing-modal {
+    padding-top: 80px;
+    padding-bottom: 66px;
+}
+
+.modal-title-existing-modal {
+    float: left;
+    font-size: 38px;
+    font: avenir; 
+    padding-left: 48px;
+}
+
+.modal-body-existing-modal {
+    padding-bottom: 8px;   
+    padding-left: 48px;
+    padding-right: 362px;
+    float: left;
+    max-height: 124px;
+    max-width: 200px;
+    overflow-y:auto
+}
+
+.modal-footer-existing-modal {
+    padding: 0px;
+    padding-bottom: 24px;
+}
+
+.label {
+    text-align: left;
+}
+
+.modal-footer-existing-modal button {
+    float: right;
+    margin-bottom: 24px;
+    margin-right: 24px;
+}
+
+
+
+.container {
+    display: block;
+    text-align: left;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+ }
+
+ .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 4px;
+}
+
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+.container input:checked ~ .checkmark {
+    background-color: #237afd;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+.container input:checked ~ .checkmark:after {
+display: block;
+}
+
+.container .checkmark:after {
+left: 9px;
+top: 5px;
+width: 5px;
+height: 10px;
+border: solid white;
+border-width: 0 3px 3px 0;
+-webkit-transform: rotate(45deg);
+-ms-transform: rotate(45deg);
+transform: rotate(45deg);
+}
