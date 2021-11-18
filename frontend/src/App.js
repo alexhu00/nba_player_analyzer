@@ -25,7 +25,6 @@ const App = () => {
           <Route path="/Group">
             <NavBar />
             <header className="Group">
-              <h1> Group Page </h1>
               <GroupTables></GroupTables>
               {/* <GroupPlayers
                 data={Object.entries(groupData[0])[2][1]}
