@@ -2,15 +2,11 @@ import React, { useState, useMemo } from "react";
 import "./AllPlayers.css";
 import NavBar from "../NavBar";
 import Modal from "./createGroupModal";
-import { players } from "../data/players_20-21-";
 import { player_data } from "../data/new_data-20-21";
 import { useTable } from "react-table";
-// import nba_player_data_20-21-- from "./nba_player_data_20-21--.json"
 import { COLUMNS } from "./columnsAP";
-import "./resetButton.css";
-import "./sortButton.css";
-import csvJSON from "../csv_json_convert";
-// import "../nba_player_data_20-21.csv";
+import "../css/resetButton.css";
+import "../css/sortButton.css";
 
 // Importing React-Table : https://www.bacancytechnology.com/blog/react-table-tutorial-part-1/#4
 // TABLE TUTORIAL: https://www.youtube.com/watch?v=hson9BXU9F8
@@ -31,12 +27,42 @@ const AllPlayers = () => {
     return values;
   }
 
+  // Reveal dropdown menu
   const dropDown = () => {
     document.getElementById('dropdown').classList.toggle("show")
   }
   
+  // Sorting table by points
   const sortPoints = () => {
-    
+    console.log(player_data)
+    var table = document.getElementById("player-table")
+    // console.log(table)
+    var rowOne = table.rows[1]
+    var rowTwo = table.rows[2]
+    console.log(rowOne)
+    // console.log(rowTwo)
+
+    // var rows = table.rows
+    // var firstrow = rows[1]
+    // var point = firstrow.getElementsByTagName("TD")[4].innerHTML
+    // console.log(table)
+
+    // var N = rows.length - 1
+    // var i, j, key
+
+    // for(i = 2; i < N; i++) {
+    //   j = i
+
+    //   var pointOne = rows[j].getElementsByTagName("TD")[4].innerHTML
+    //   var pointTwo = rows[j - 1].getElementsByTagName("TD")[4].innerHTML
+      
+    //   while(j > 1 && pointOne < pointTwo) {
+    //     // console.log(rows[j-1].getElementsByTagName("TD")[1].innerHTML + " before " + rows[j].getElementsByTagName("TD")[1].innerHTML)
+    //     rows[j-1].parentNode.insertBefore(rows[j], rows[j-1])
+    //     j--
+    //   }
+    // }
+
   }
 
   // Get data from checkboxes
@@ -75,7 +101,7 @@ const AllPlayers = () => {
       }
     });
   }
-  // show Modals
+  // Show Modals
   const [show, setShow] = useState(false);
 
   // Creating React-Table
@@ -86,6 +112,8 @@ const AllPlayers = () => {
     columns,
     data,
   });
+
+  console.log(data)
 
   const {
     // getTableProps,
@@ -102,12 +130,9 @@ const AllPlayers = () => {
         Show create modal
       </button>
       <Modal onClose={() => setShow(false)} show={show} />
-
       <button onClick={showCheckBoxData}>Click</button>
-      {/* <button
-        onClick={() => console.log('her')} 
-        className={"reset-button"}
-      >Reset</button> */}
+
+      {/* SORT BUTTON */}
       <button onClick={() => dropDown()} className="sort-button allPlayers">
         <span className="text">Sort By Stat</span>
         <span className="arrow-up" />
@@ -118,7 +143,9 @@ const AllPlayers = () => {
         <button>Rebounds</button>
         <button>Assists</button>
       </div>
-      <table {...getTableBodyProps} className="whole-table">
+
+      {/* TABLE CREATION */}
+      <table {...getTableBodyProps} className="whole-table" id="player-table">
         <thead>
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
@@ -144,10 +171,7 @@ const AllPlayers = () => {
                   name="itemCheckbox"
                   data={JSON.stringify(row.values)}
                 ></input>
-                {/* {console.log(row.original)} */}
-                {/* {console.log(row.values["Player"])} */}
                 {row.cells.map((cell) => {
-                  // console.log(cell.render("Cell"));
                   return (
                     <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
                   );

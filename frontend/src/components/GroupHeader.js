@@ -1,5 +1,5 @@
 import React from "react"
-import "./sortButton.css"
+import "../css/sortButton.css"
 import "./GroupHeader.css"
 
 const GroupHeader = () => {
