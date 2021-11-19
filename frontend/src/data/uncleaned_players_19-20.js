@@ -1,4 +1,4 @@
-export const players = [
+export const onePrevPlayers = [
  {
    "Rk": 1,
    "Player": "Steven Adams",

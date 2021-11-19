@@ -1,12 +1,29 @@
 import React, { useState, useMemo } from "react";
 import "./AllPlayers.css";
 import NavBar from "../NavBar";
+<<<<<<< HEAD
 import Modal from "./createGroupModal";
+=======
+import GroupModal from "./createGroupModal";
+import MultiModal from "./multimodal";
+import AddToExistingModal from "./createExistingGroupsModal";
+import { players } from "../data/players_20-21-";
+>>>>>>> 261e70334a201f5ca013111761caed1d5be61e58
 import { player_data } from "../data/new_data-20-21";
 import { useTable } from "react-table";
 import { COLUMNS } from "./columnsAP";
+<<<<<<< HEAD
 import "../css/resetButton.css";
 import "../css/sortButton.css";
+=======
+import "./resetButton.css";
+import "./sortButton.css";
+import "./buttonStyling.css";
+import csvJSON from "../csv_json_convert";
+const groupData = require("../data/groupDataFake.json");
+
+// import "../nba_player_data_20-21.csv";
+>>>>>>> 261e70334a201f5ca013111761caed1d5be61e58
 
 // Importing React-Table : https://www.bacancytechnology.com/blog/react-table-tutorial-part-1/#4
 // TABLE TUTORIAL: https://www.youtube.com/watch?v=hson9BXU9F8
@@ -66,8 +83,7 @@ const AllPlayers = () => {
   }
 
   // Get data from checkboxes
-  const showCheckBoxData = () => {
-    console.log("hello");
+  const addToGroup = () => {
     let vals = getSelectedCheckboxItems("itemCheckbox");
     // console.log(vals[0].getAttribute("data"));
     let objects = [];
@@ -78,15 +94,48 @@ const AllPlayers = () => {
         objects.push(obj_data);
       }
     }
+
+    // uncheck all checkboxes
+    let checkboxes = document.querySelectorAll(`input[name="itemCheckbox"]`);
+    checkboxes.forEach((checkbox) => {
+      checkbox.checked = false;
+    });
+
+    // Adds to Gropu 1 Currently
     if (objects.length !== 0) {
-      console.log(objects);
-      alert(
-        "There are " +
-          objects.length.toString() +
-          " players selected and " +
-          objects[0].Player +
-          " is the First Player Selected!"
-      );
+      console.log(Object.entries(groupData[0])[2][1]); // 0 for object, 2 for players, 1 for the array
+      for (let i = 0; i < objects.length; i++) {
+        // groupData.push(objects[i]);
+        Object.entries(groupData[0])[2][1].push(objects[i]);
+      }
+      // console.log(Object.entries(groupData[0]));
+      return objects;
+    }
+  };
+
+  // Get data from checkboxes
+  const createGroup = () => {
+    let vals = getSelectedCheckboxItems("itemCheckbox");
+    // console.log(vals[0].getAttribute("data"));
+    let objects = [];
+    if (vals.length !== 0) {
+      for (let i = 0; i < vals.length; i++) {
+        let str_data = vals[i].getAttribute("data");
+        let obj_data = JSON.parse(str_data);
+        objects.push(obj_data);
+      }
+    }
+
+    // uncheck all checkboxes
+    let checkboxes = document.querySelectorAll(`input[name="itemCheckbox"]`);
+    checkboxes.forEach((checkbox) => {
+      checkbox.checked = false;
+    });
+
+    if (objects.length !== 0) {
+      let newGroup = { id: 6, name: "New Group", players: objects };
+      groupData.push(newGroup);
+      console.log(groupData);
       return objects;
     }
   };
@@ -125,6 +174,7 @@ const AllPlayers = () => {
 
   return (
     <div>
+<<<<<<< HEAD
       <button onClick={() => setShow(true)} className={"createGroup-button"}>
         {" "}
         Show create modal
@@ -146,6 +196,47 @@ const AllPlayers = () => {
 
       {/* TABLE CREATION */}
       <table {...getTableBodyProps} className="whole-table" id="player-table">
+=======
+      <div className={"actionButtonsGroup"}>
+        {/* <button onClick={() => setShow(true)} className={"createGroup-button"}>
+          {" "}
+          Create new group
+        </button>
+        <GroupModal onClose={() => setShow(false)} show={show} />
+        <div class="divider" />
+        <button onClick={() => setShow(true)} className={"addToTeam-button"}>
+          {" "}
+          Add to group
+        </button>
+        <div class="divider" />
+        <AddToExistingModal onClose={() => setShow(false)} show={show} className={"addToExisting"} /> */}
+        <MultiModal />
+
+        <button onClick={addToGroup} className="createGroup-button">
+          Add to Group 1
+        </button>
+        <button onClick={createGroup} className="createGroup-button">
+          Create Group
+        </button>
+        {/* <button
+        onClick={() => console.log('her')} 
+        className={"reset-button"}
+      >Reset</button> */}
+        <div class="divider" />
+        <button onClick={dropDown()} className="sort-button allPlayers">
+          <span className="text">Sort By Stat</span>
+          <span className="arrow-up" />
+          <span className="arrow-down" />
+        </button>
+      </div>
+
+      {/* <div className="dropdown-content" id="myDropdown">
+        <a href="#">Points</a>
+        <a href="#">Rebounds</a>
+        <a href="#">Assists</a>
+      </div> */}
+      <table {...getTableBodyProps} className="whole-table">
+>>>>>>> 261e70334a201f5ca013111761caed1d5be61e58
         <thead>
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
@@ -190,8 +281,6 @@ const Home = () => (
   <div>
     <NavBar />
     <header>
-      <h1>Welcome to All Players</h1>
-
       <AllPlayers />
     </header>
   </div>

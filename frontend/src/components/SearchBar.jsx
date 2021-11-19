@@ -4,7 +4,9 @@ import "./SearchBar.css";
 import searchicon from "../assets/searchicon.png"
 
 function Search({ placeholder, data, updatePlayer}){
+    //filteredData based off of search word
     const [filteredData, setFilteredData] = useState([]);
+    //search word
     const [wordEntered, setWordEntered] = useState("");
   
     const handleFilter = (event) => {
@@ -13,28 +15,34 @@ function Search({ placeholder, data, updatePlayer}){
       const newFilter = data.filter((value) => {
         return value.Player.toLowerCase().includes(searchWord.toLowerCase());
       });
-  
+
+      //If empty searchbar, then set filteredData to empty array
       if (searchWord === "") {
         setFilteredData([]);
       } else {
+        //Otherwise, setFilteredData based off of newFilter return
         console.log('newFilter', newFilter);
         setFilteredData(newFilter);
       }
     };
-  
+
     const clearInput = () => {
       setFilteredData([]);
       setWordEntered("");
     };
 
+    //Select player from dropdown list and filteredData
     function selectPlayer(value){
-    let index = data.findIndex( element => {
-        if (element.Player === value.Player) {
-            return true;
-        }
+      let index = data.findIndex( element => {
+          if (element.Player === value.Player) {
+              return true;
+          }
         });
+        //Send the index of the player selected up to parent component
+        //Index is used to keep track of player
         updatePlayer(index);
         console.log(value.Player + 'is at index: ' + index);
+        //After selecting value, clear input/searchbar
         clearInput();
     }
 

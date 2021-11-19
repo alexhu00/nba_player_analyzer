@@ -1,4 +1,4 @@
-export const players = [
+export const twoPrevPlayers = [
  {
    "Rk": 1,
    "Player": "Álex Abrines",

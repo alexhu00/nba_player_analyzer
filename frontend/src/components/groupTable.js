@@ -4,69 +4,69 @@ import { players } from "../data/players_20-21-";
 import { useTable } from "react-table";
 // import nba_player_data_20-21-- from "./nba_player_data_20-21--.json"
 import { COLUMNS } from "./columnsAP";
-import GroupHeader from "./GroupHeader.js"
-import './groupTable.css'
+import GroupHeader from "./GroupHeader.js";
+import "./groupTable.css";
+// const groupData = require("../data/groupDataFake.json");
 
 // Importing React-Table : https://www.bacancytechnology.com/blog/react-table-tutorial-part-1/#4
 // TABLE TUTORIAL: https://www.youtube.com/watch?v=hson9BXU9F8
 // CSV TO JSON Convertor: https://www.convertcsv.com/csv-to-json.htm
 
-const GroupPlayers = () => {
-    const showData = () => {
-        // const d = JSON.parse(players);
-        console.log("hello");
-        // console.log(Object.entries(players));
-        console.log(players);
-    };
+const GroupPlayers = (props) => {
+  // const showData = () => {
+  //   // const d = JSON.parse(players);
+  //   console.log("hello");
+  //   // console.log(Object.entries(players));
+  //   console.log(props.data);
+  // };
 
-    const columns = useMemo(() => COLUMNS, []);
-    const data = useMemo(() => players, []);
+  const columns = useMemo(() => COLUMNS, []);
+  const data = useMemo(() => props.data, []);
 
-    const tableInstance = useTable({
-        columns,
-        data,
-    });
+  const tableInstance = useTable({
+    columns,
+    data,
+  });
 
-    const {
-        // getTableProps,
-        getTableBodyProps,
-        headerGroups,
-        rows,
-        prepareRow,
-    } = tableInstance;
+  const {
+    // getTableProps,
+    getTableBodyProps,
+    headerGroups,
+    rows,
+    prepareRow,
+  } = tableInstance;
 
-    return (
-        <div className="groupTable">
-            <GroupHeader/>
-            <button onClick={showData}>Click</button>
-            <table {...getTableBodyProps}>
-                <thead>
-                    {headerGroups.map((headerGroup) => (
-                        <tr {...headerGroup.getHeaderGroupProps()}>
-                            {headerGroup.headers.map((column) => (
-                                <th {...column.getHeaderProps()}>{column.render("Header")}</th>
-                            ))}
-                        </tr>
-                    ))}
-                </thead>
-                <tbody {...getTableBodyProps}>
-                    {rows.map((row) => {
-                        prepareRow(row);
-                        return (
-                            <tr {...row.getRowProps()}>
-                                {row.cells.map((cell) => {
-                                    return (
-                                        <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
-                                    );
-                                })}
-                            </tr>
-                        );
-                    })}
-                </tbody>
-            </table>
-            {/* <h1></h1> */}
-        </div>
-    );
+  return (
+    <div className="groupTable">
+      <GroupHeader name={props.name} />
+      <table {...getTableBodyProps}>
+        <thead>
+          {headerGroups.map((headerGroup) => (
+            <tr {...headerGroup.getHeaderGroupProps()}>
+              {headerGroup.headers.map((column) => (
+                <th {...column.getHeaderProps()}>{column.render("Header")}</th>
+              ))}
+            </tr>
+          ))}
+        </thead>
+        <tbody {...getTableBodyProps}>
+          {rows.map((row) => {
+            prepareRow(row);
+            return (
+              <tr {...row.getRowProps()}>
+                {row.cells.map((cell) => {
+                  return (
+                    <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
+                  );
+                })}
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+      {/* <h1></h1> */}
+    </div>
+  );
 };
 
 // // the home page with the items and the stuff at the bottom
