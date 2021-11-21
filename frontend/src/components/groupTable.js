@@ -1,11 +1,11 @@
 import React, { useMemo } from "react";
 // import NavBar from "../NavBar";
-import { players } from "../data/players_20-21-";
+// import { players } from "../data/players_20-21-";
 import { useTable } from "react-table";
 // import nba_player_data_20-21-- from "./nba_player_data_20-21--.json"
 import { COLUMNS } from "./columnsAP";
 import GroupHeader from "./GroupHeader.js";
-import "./groupTable.css";
+import "../css/groupTable.css";
 // const groupData = require("../data/groupDataFake.json");
 
 // Importing React-Table : https://www.bacancytechnology.com/blog/react-table-tutorial-part-1/#4

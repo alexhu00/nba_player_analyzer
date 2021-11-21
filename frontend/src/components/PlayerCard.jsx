@@ -1,7 +1,7 @@
 import { player_data } from "../data/new_data-20-21";
 import { onePrevPlayers } from "../data/uncleaned_players_19-20";
 import { twoPrevPlayers } from "../data/uncleaned_players_18-19";
-import "./PlayerCard.css";
+import "../css/PlayerCard.css";
 import { useState } from "react";
 
 function PlayerCard(props) {

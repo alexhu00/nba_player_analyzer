@@ -1,6 +1,6 @@
 import PlayerCard from "./PlayerCard";
 import Search from "./SearchBar";
-import "./HeadtoHead.css";
+import "../css/HeadtoHead.css";
 import { player_data } from "../data/new_data-20-21";
 import { useState, React } from "react";
 

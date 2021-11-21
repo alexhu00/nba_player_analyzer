@@ -1,6 +1,6 @@
 import { useState } from "react";
 import React from "react";
-import "./SearchBar.css";
+import "../css/SearchBar.css";
 import searchicon from "../assets/searchicon.png"
 
 function Search({ placeholder, data, updatePlayer}){

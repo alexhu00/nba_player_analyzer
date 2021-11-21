@@ -1,10 +1,10 @@
 
 import React from "react";
 import Modal from "react-modal";
-import "./createExistingGroupsModal.css"
-import "./createGroupbutton.css"
-import "./createGroupModal.css"
-import "./modalstyles.css"
+import "../css/createExistingGroupsModal.css"
+import "../css/createGroupbutton.css"
+import "../css/createGroupModal.css"
+import "../css/modalstyles.css"
 import GroupModal from "./createGroupModal";
 import AddToExistingModal from "./createExistingGroupsModal";
 

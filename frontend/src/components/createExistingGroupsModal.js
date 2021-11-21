@@ -1,5 +1,5 @@
 import React from "react";
-import './createExistingGroupsModal.css';
+import '../css/createExistingGroupsModal.css';
 
 const AddToExistingModal = props => {
     if (!props.show) {

@@ -1,21 +1,21 @@
 import React, { useState, useMemo } from "react";
-import "./AllPlayers.css";
-import NavBar from "../NavBar";
-import GroupModal from "./createGroupModal";
-import MultiModal from "./multimodal";
-import AddToExistingModal from "./createExistingGroupsModal";
-import { players } from "../data/players_20-21-";
 import { player_data } from "../data/new_data-20-21";
-import { useTable } from "react-table";
-// import nba_player_data_20-21-- from "./nba_player_data_20-21--.json"
+import { useTable, useSortBy } from "react-table";
 import { COLUMNS } from "./columnsAP";
-import "./resetButton.css";
-import "./sortButton.css";
-import "./buttonStyling.css";
-import csvJSON from "../csv_json_convert";
-const groupData = require("../data/groupDataFake.json");
 
-// import "../nba_player_data_20-21.csv";
+import NavBar from "../NavBar";
+// import GroupModal from "./createGroupModal";
+import MultiModal from "./multimodal";
+// import AddToExistingModal from "./createExistingGroupsModal";
+// import { players } from "../data/players_20-21-";
+
+// CSS imports
+import "../css/AllPlayers.css";
+import "../css/resetButton.css";
+import "../css/sortButton.css";
+import "../css/buttonStyling.css";
+
+const groupData = require("../data/groupDataFake.json");
 
 // Importing React-Table : https://www.bacancytechnology.com/blog/react-table-tutorial-part-1/#4
 // TABLE TUTORIAL: https://www.youtube.com/watch?v=hson9BXU9F8
@@ -34,10 +34,6 @@ const AllPlayers = () => {
     });
     // returns arrays of all checkboxes that are checked
     return values;
-  }
-
-  function dropDown() {
-    // document.getElementById("myDropdown").classList.toggle("show");
   }
 
   // Get data from checkboxes
@@ -108,7 +104,7 @@ const AllPlayers = () => {
       }
     });
   }
-  // show Modals
+  // Show Modals
   const [show, setShow] = useState(false);
 
   // Creating React-Table
@@ -118,7 +114,9 @@ const AllPlayers = () => {
   const tableInstance = useTable({
     columns,
     data,
-  });
+  }, useSortBy);
+
+  console.log(data)
 
   const {
     // getTableProps,
@@ -156,18 +154,8 @@ const AllPlayers = () => {
         className={"reset-button"}
       >Reset</button> */}
         <div class="divider" />
-        <button onClick={dropDown()} className="sort-button allPlayers">
-          <span className="text">Sort By Stat</span>
-          <span className="arrow-up" />
-          <span className="arrow-down" />
-        </button>
       </div>
 
-      {/* <div className="dropdown-content" id="myDropdown">
-        <a href="#">Points</a>
-        <a href="#">Rebounds</a>
-        <a href="#">Assists</a>
-      </div> */}
       <table {...getTableBodyProps} className="whole-table">
         <thead>
           {headerGroups.map((headerGroup) => (
@@ -179,7 +167,9 @@ const AllPlayers = () => {
                 onClick={() => toggle("selectAll", "itemCheckbox")}
               ></input>
               {headerGroup.headers.map((column) => (
-                <th {...column.getHeaderProps()}>{column.render("Header")}</th>
+                <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                  {column.render("Header")}
+                </th>
               ))}
             </tr>
           ))}
@@ -194,10 +184,7 @@ const AllPlayers = () => {
                   name="itemCheckbox"
                   data={JSON.stringify(row.values)}
                 ></input>
-                {/* {console.log(row.original)} */}
-                {/* {console.log(row.values["Player"])} */}
                 {row.cells.map((cell) => {
-                  // console.log(cell.render("Cell"));
                   return (
                     <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
                   );

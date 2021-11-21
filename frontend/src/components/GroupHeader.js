@@ -1,6 +1,6 @@
-import React from "react";
-import "./sortButton.css";
-import "./GroupHeader.css";
+import React from "react"
+import "../css/sortButton.css"
+import "../css/GroupHeader.css"
 
 const GroupHeader = (props) => {
   return (

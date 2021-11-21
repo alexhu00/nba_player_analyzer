@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import "./NavBar.css";
+import "./css/NavBar.css";
 
 // NavBar from example project
 // Links to every site we have
