@@ -1,14 +1,9 @@
-// import logo from "./logo.svg";
-import "./App.css";
-import { useState } from "react";
+import "./css/App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NavBar from "./NavBar";
-import Modal from "./components/createGroupModal";
 import { AllPlayers, Home } from "./components/AllPlayers";
-// import PlayerCard from "./components/PlayerCard";
 import HeadtoHead from "./components/HeadtoHead";
 import HomePage from "./HomePage";
-import GroupPlayers from "./components/groupTable";
 import GroupTables from "./components/groupTables";
 const groupedData = require("./data/groupDataFake.json");
 
@@ -29,9 +24,6 @@ const App = () => {
             <NavBar />
             <header className="Group">
               <GroupTables></GroupTables>
-              {/* <GroupPlayers
-                data={Object.entries(groupData[0])[2][1]}
-              ></GroupPlayers> */}
             </header>
           </Route>
 
