@@ -2,12 +2,8 @@ import React, { useState, useMemo } from "react";
 import { player_data } from "../data/new_data-20-21";
 import { useTable, useSortBy } from "react-table";
 import { COLUMNS } from "./columnsAP";
-
 import NavBar from "../NavBar";
-// import GroupModal from "./createGroupModal";
 import MultiModal from "./multimodal";
-// import AddToExistingModal from "./createExistingGroupsModal";
-// import { players } from "../data/players_20-21-";
 
 // CSS imports
 import "../css/AllPlayers.css";
@@ -149,10 +145,6 @@ const AllPlayers = () => {
         <button onClick={createGroup} className="createGroup-button">
           Create Group
         </button>
-        {/* <button
-        onClick={() => console.log('her')} 
-        className={"reset-button"}
-      >Reset</button> */}
         <div class="divider" />
       </div>
 
