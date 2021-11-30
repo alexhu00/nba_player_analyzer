@@ -26,3 +26,31 @@
 
 ### What to improve on next sprint: 
 * We’ll update tickets during our synchronous meetings so everyone is aligned on what to do next
+
+# Week 3 Sprint 
+### Thing that went well
+* Active participation in design critiques 
+* People pitching in on ideas and giving feedback 
+* Our tickets have been moved real time!
+* Good allocation and sizing of tickets 
+* Reallocating tickets when people were out 
+
+### Things that didn't go too well
+* Work progress has slowed 
+* Some of our team members are sick 
+* One of our team members withdrew from the class
+* We’ve done more asynchronous meetings
+
+### What to improve on next sprint: 
+* Meet up synchronously this week 
+
+# Retros for Retros (Overall)
+### Things that went well overall
+* Identifying times to meet early on and sticking with a schedule 
+* Showing instead of telling in our synchronous meeting among our members 
+* Good communication between team members 
+* Good delagation of what each person has to do 
+
+### What will need to improve on: 
+* Overcoming slumps 
+* Meeting synchronously again
