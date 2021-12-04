@@ -1,0 +1,72 @@
+.SignupOrLogin{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    position: absolute;
+    background-color: #F0F5FB;
+}
+
+.SignupOrLogin__logo{
+    padding: 20px;
+}
+
+.SignupOrLogin__centermodal{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid lightgrey;
+    box-shadow: 5px 5px 5px lightgrey;
+    border-radius: 5px;
+    padding: 30px 60px;
+    background-color: white;
+}
+
+.SignupOrLogin__header{
+    color: #237AFD;
+    font-weight: 700;
+    font-size: large;
+    padding-bottom: 10px;
+}
+
+.SignupOrLogin__subtitle{
+    color: grey;
+    font-weight: 300;
+    font-size: 14px;
+    padding-bottom: 20px;
+}
+
+.SignupOrLogin__email, .SignupOrLogin__setpass, .SignupOrLogin__confirmpass{
+    border: 1px solid #237AFD;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 15px;
+    color: grey;
+}
+
+.SignupOrLogin__signupbtn{
+    background-color: #237AFD;
+    border-radius: 5px;
+    padding: 10px;
+    border: 0px;
+    color: white;
+    margin: 10px;
+    font-size: 14px;
+}
+
+.SignupOrLogin__signupbtn:hover{
+    cursor: pointer;
+}
+
+.SignupOrLogin__loginbtn{
+    background-color: white;
+    border: 0px;
+    color: #237AFD;
+    padding: 0px;
+    font-size: 14px;
+}
+
+.SignupOrLogin__loginbtn:hover{
+    cursor: pointer;
+}
