@@ -41,76 +41,98 @@ function SignupOrLogin() {
           Enter your credentials to get access to your account.
         </div>
         <form>
-            {entryType === "Signup" ? (
+          {entryType === "Signup" ? (
             <div className="SignupOrLogin__fields">
-                <input
+              <input
                 type="text"
                 className="SignupOrLogin__email"
                 placeholder="Email"
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
                 required
-                />
-                <input
+              />
+              <input
                 type="text"
                 className="SignupOrLogin__setpass"
                 placeholder="Set password"
                 value={password}
                 onChange={(event) => {
-                    setPassword(event.target.value);
+                  setPassword(event.target.value);
                 }}
                 required
-                />
-                <input
+              />
+              <input
                 type="text"
                 className="SignupOrLogin__setpass"
                 placeholder="Confirm password"
                 onChange={(event) => {
-                    checkPassword(event.target.value);
+                  checkPassword(event.target.value);
                 }}
                 required
-                />
+              />
             </div>
-            ) : (
+          ) : (
             <div className="SignupOrLogin__fields">
-                <input
+              <input
                 type="text"
                 className="SignupOrLogin__email"
                 placeholder="Email"
                 value={email}
                 onChange={(event) => {
-                    setEmail(event.target.value);
+                  setEmail(event.target.value);
                 }}
                 required
-                />
-                <input
+              />
+              <input
                 type="text"
                 className="SignupOrLogin__setpass"
                 placeholder="Password"
                 value={password}
                 onChange={(event) => {
-                    setPassword(event.target.value);
+                  setPassword(event.target.value);
                 }}
                 required
-                />
+              />
             </div>
-            )}
+          )}
         </form>
-        <button
-          className="SignupOrLogin__signupbtn"
-          onClick={() => ChangeToSignup()}
-        >
-          Sign up
-        </button>
-        <div>
-          or{" "}
-          <button
-            className="SignupOrLogin__loginbtn"
-            onClick={() => ChangeToLogin()}
-          >
-            Log in
-          </button>
-        </div>
+        {entryType === "Signup" ? (
+          <div className="SignupOrLogin__btns">
+            <button
+              className="SignupOrLogin__signupbtn"
+              onClick={() => ChangeToSignup()}
+            >
+              Sign up
+            </button>
+            <div>
+              or {" "}
+              <button
+                className="SignupOrLogin__loginbtn"
+                onClick={() => ChangeToLogin()}
+              >
+                Log in
+              </button>
+            </div>
+          </div>
+        ) : (
+            <div className="SignupOrLogin__btns">
+            <button
+              className="SignupOrLogin__signupbtn"
+              onClick={() => ChangeToLogin()}
+            >
+              Log in
+            </button>
+            <div>
+              or {" "}
+              <button
+                className="SignupOrLogin__loginbtn"
+                onClick={() => ChangeToSignup()}
+              >
+                Sign up
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

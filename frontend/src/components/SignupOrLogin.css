@@ -51,6 +51,11 @@
     font-size: 14px;
     color: black;
 }
+.SignupOrLogin__btns{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .SignupOrLogin__signupbtn{
     background-color: #237AFD;
@@ -60,6 +65,7 @@
     color: white;
     margin: 10px;
     font-size: 14px;
+    width: 100%;
 }
 
 .SignupOrLogin__signupbtn:hover{
