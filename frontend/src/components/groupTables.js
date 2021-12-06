@@ -8,6 +8,7 @@ const GroupTables = (props) => {
 
   const showGroups = () => {
     let groupList = [];
+    console.log(groupData)
     for (let i = 0; i < groupData.length; i++) {
       groupList.push(
         <GroupPlayers

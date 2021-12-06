@@ -57,7 +57,7 @@ export const addToGroup = () => {
 };
 
 // Get data from checkboxes
-export const createGroup = () => {
+export const createGroup = (name) => {
   let vals = getSelectedCheckboxItems("itemCheckbox");
   // console.log(vals[0].getAttribute("data"));
   let objects = [];
@@ -76,7 +76,7 @@ export const createGroup = () => {
   });
 
   if (objects.length !== 0) {
-    let newGroup = { id: 6, name: "New Group", players: objects };
+    let newGroup = { id: "TODO", name: name, players: objects };
     groupData.push(newGroup);
     console.log(groupData);
     return objects;
