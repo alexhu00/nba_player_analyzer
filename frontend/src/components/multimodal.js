@@ -9,6 +9,8 @@ import GroupModal from "./createGroupModal";
 import AddToExistingModal from "./createExistingGroupsModal";
 
 class MultiModal extends React.Component {
+
+
     constructor(props) {
         super(props);
         this.state = {
@@ -30,6 +32,7 @@ class MultiModal extends React.Component {
     }
     render() {
         return (
+
             <>
                 <div className="icon">
                     <div className="modal-container"
@@ -52,9 +55,7 @@ class MultiModal extends React.Component {
                                 <div className="modal-title"> Create new Group </div>
                             </div>
                             <div className="modal-body">
-                                <form>
-                                    <input type="textarea" value="Type in group name here" id="groupNameinput" />
-                                </form>
+                                <input type="text" value="Type in group name here" id="groupNameinput" />
                             </div>
                             <div className="modal-footer">
                                 <button className="exitcreategroup-button" onClick={this.handleCloseModal}>Create Group</button>
