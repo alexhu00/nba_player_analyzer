@@ -35,8 +35,8 @@ const connection = mongoose.connection;
 
 connection.once("open", function() {
   console.log("Connection with MongoDB was successful");
-  //const x = new user({name:"hi", email:"hi@gmail.com", password: "hi"}).save();
-  //console.log(x)
+  //const arr = [[1,2,3],[4,5,6]];
+  //const x = new user({name:"hi", email:"hi@gmail.com", password: "hi", groups: arr}).save();
 });
 
 
