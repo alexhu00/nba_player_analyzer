@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { useTable } from "react-table";
+import { useTable, useSortBy } from "react-table";
 import { COLUMNS } from "./columnsAP";
 import GroupHeader from "./GroupHeader.js";
 import "../css/groupTable.css";
@@ -15,7 +15,8 @@ const GroupPlayers = (props) => {
   const tableInstance = useTable({
     columns,
     data,
-  });
+  }, 
+  useSortBy);
 
   const {
     getTableBodyProps,
@@ -32,7 +33,9 @@ const GroupPlayers = (props) => {
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column) => (
-                <th {...column.getHeaderProps()}>{column.render("Header")}</th>
+                <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                {column.render("Header")}
+              </th>
               ))}
             </tr>
           ))}
