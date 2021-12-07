@@ -60,6 +60,7 @@ class MultiModal extends React.Component {
                         }
                         contentLabel="newGroup Modal"
                     >
+
                         <div className="content">
                             <button className="close" onClick={this.handleCloseModal}>X</button>
                             <div className="modal-header">
@@ -98,7 +99,6 @@ class MultiModal extends React.Component {
                             </div>
                             <div className="modal-body-existing-modal">
                                 <label class="container">Group 1
-                                    var teams = ["Group 1", "Group 2", "test3"]
 
                                     <input type="checkbox"></input>
                                     <span className="checkmark"></span>
