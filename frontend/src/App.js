@@ -12,17 +12,18 @@ const groupedData = require("./data/groupDataFake.json");
 const App = () => {
   return (
     <div className="App">
-      <img src={hoops} alt="hoops logo"></img>
       <Router>
         <Switch>
           <Route path="/" exact component={Home}>
             <SignupOrLogin></SignupOrLogin>
           </Route>
           <Route path="/Players">
+            <img src={hoops} alt="hoops logo"></img>
             <NavBar />
             <AllPlayers></AllPlayers>
           </Route>
           <Route path="/Group">
+            <img src={hoops} alt="hoops logo"></img>
             <NavBar />
             <header className="Group">
               <GroupTables></GroupTables>
@@ -30,6 +31,7 @@ const App = () => {
           </Route>
 
           <Route path="/Head_to_Head">
+            <img src={hoops} alt="hoops logo"></img>
             <NavBar />
             <HeadtoHead></HeadtoHead>
           </Route>
