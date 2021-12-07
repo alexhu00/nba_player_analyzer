@@ -5,16 +5,18 @@ import { AllPlayers, Home } from "./components/AllPlayers";
 import HeadtoHead from "./components/HeadtoHead";
 import HomePage from "./HomePage";
 import GroupTables from "./components/groupTables";
+import SignupOrLogin from "./components/SignupOrLogin";
+import hoops from "./assets/hoops.png";
 const groupedData = require("./data/groupDataFake.json");
 
 const App = () => {
   return (
     <div className="App">
+      <img src={hoops} alt="hoops logo"></img>
       <Router>
         <Switch>
           <Route path="/" exact component={Home}>
-            <NavBar />
-            <HomePage></HomePage>
+            <SignupOrLogin></SignupOrLogin>
           </Route>
           <Route path="/Players">
             <NavBar />
