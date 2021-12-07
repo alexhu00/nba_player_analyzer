@@ -1,4 +1,18 @@
-# NBA Player Analyzer
+![Screen Shot 2021-12-07 at 1 43 47 AM](https://user-images.githubusercontent.com/45698971/144979800-00ace52b-9323-4bac-bb27-fd76e401a64a.png)
+
+# Hoops - A NBA Player Analyzer 
+
+Hoops allows fantasy basketball players to easily compare and contrast their own dream teams with different views.
+
+View player stats 1-1 
+![Screen Shot 2021-12-07 at 1 46 38 AM](https://user-images.githubusercontent.com/45698971/144980127-94a2b254-5611-45cf-b5e7-d99abd6a3744.png)
+
+Curate your own team 
+![Screen Shot 2021-12-07 at 1 51 25 AM](https://user-images.githubusercontent.com/45698971/144980776-492beb03-28ef-45a9-9430-329f39a84a9b.png)
+
+Store your dream teams all in one place 
+![Screen Shot 2021-12-07 at 1 47 22 AM](https://user-images.githubusercontent.com/45698971/144980221-6eb3edb2-ec62-4d7f-a27e-2165416ab3b0.png)
+
 
 ### Stand-up Meeting Times
 
