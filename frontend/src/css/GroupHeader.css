@@ -1,14 +1,14 @@
 .group-header {
   display: flex;
-  background-color: #f7f0ff;
+  background-color: #f0f5ff;
   width: 70%;
   margin: auto;
   justify-content: space-between;
-  border-bottom: 0.02rem solid rgb(170, 50, 220, 0.6);
+  border-bottom: 0.02rem solid rgba(50, 95, 220, 0.6);
 }
 
 .group-name {
-  color: #6001d1;
+  color: #0173d1;
   display: flex;
   position: relative;
   left: 20px;
