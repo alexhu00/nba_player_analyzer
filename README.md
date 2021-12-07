@@ -16,3 +16,5 @@ Shared Drive: https://drive.google.com/drive/folders/124OnEs8-N2fp7rzO92bq842Rww
 Figma: https://www.figma.com/file/xzLC5RetdD3yZLAxxlrbYg/NBA-App---Remote-Collabs?node-id=0%3A1
 
 CSV to JSON: https://www.convertcsv.com/csv-to-json.htm
+
+![Screen Shot 2021-12-07 at 1 43 04 AM](https://user-images.githubusercontent.com/45698971/144979710-9e64a2be-a235-456d-a72e-61705e353a47.png)
