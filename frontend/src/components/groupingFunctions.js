@@ -44,7 +44,7 @@ export const addToGroup = () => {
     checkbox.checked = false;
   });
 
-  // Adds to Gropu 1 Currently
+  // Adds to Group 1 Currently
   if (objects.length !== 0) {
     console.log(Object.entries(groupData[0])[2][1]); // 0 for object, 2 for players, 1 for the array
     for (let i = 0; i < objects.length; i++) {

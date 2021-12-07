@@ -73,9 +73,7 @@ const AllPlayers = () => {
         <button onClick={addToGroup} className="createGroup-button">
           Add to Group 1
         </button>
-        <button onClick={createGroup} className="createGroup-button">
-          Create Group
-        </button>
+
         <div class="divider" />
       </div>
 

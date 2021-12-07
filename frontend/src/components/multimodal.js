@@ -75,6 +75,8 @@ class MultiModal extends React.Component {
 
                     </Modal>
                 </div>
+
+                {/* add to existing group modal */}
                 <div className="icon">
                     <div className="modal-container"
                         className="modal-button-existingGroup"
@@ -95,34 +97,12 @@ class MultiModal extends React.Component {
                                 <div className="modal-title-existing-modal"> Add to existing group </div>
                             </div>
                             <div className="modal-body-existing-modal">
-                                <label class="container">One
-                                    <input type="checkbox"></input>
-                                    <span className="checkmark"></span>
-                                </label>
+                                <label class="container">Group 1
+                                    var teams = ["Group 1", "Group 2", "test3"]
 
-                                <label class="container">Two
                                     <input type="checkbox"></input>
                                     <span className="checkmark"></span>
                                 </label>
-                                <label class="container">fourteen
-                                    <input type="checkbox"></input>
-                                    <span className="checkmark"></span>
-                                </label>
-                                <label class="container">One
-                                    <input type="checkbox"></input>
-                                    <span className="checkmark"></span>
-                                </label>
-
-                                <label class="container">Two
-                                    <input type="checkbox"></input>
-                                    <span className="checkmark"></span>
-                                </label>
-                                <label class="container">fourteen
-                                    <input type="checkbox"></input>
-                                    <span className="checkmark"></span>
-                                </label>
-
-
                             </div>
                             <div className="modal-footer-existing-modal">
                                 {/* need to change when adding object to existing groups */}
