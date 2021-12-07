@@ -103,6 +103,11 @@ class MultiModal extends React.Component {
                                     <input type="checkbox"></input>
                                     <span className="checkmark"></span>
                                 </label>
+                                <label class="container">Group 2
+
+                                    <input type="checkbox"></input>
+                                    <span className="checkmark"></span>
+                                </label>
                             </div>
                             <div className="modal-footer-existing-modal">
                                 {/* need to change when adding object to existing groups */}
