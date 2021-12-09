@@ -12,7 +12,6 @@ const groupedData = require("./data/groupDataFake.json");
 const App = () => {
   return (
     <div className="App">
-      <img src={hoops} alt="hoops logo"></img>
       <Router>
         <Switch>
           <Route path="/" exact component={Home}>
