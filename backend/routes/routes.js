@@ -2,11 +2,15 @@
 const express = require('express')
 const router = express.Router()
 const signUpTemplateCopy = require('../models/user');
+const bcrypt = require('bcrypt')
 
-router.post('/signup', (req, res) => {
+router.post('/signup', async (req, res) => {
+  const saltPassword = await bcrypt.genSalt(10)
+  const securePassword = await bcrypt.hash(req.body.password, saltPassword)
+
   const signedUpUser = new signUpTemplateCopy({
     email: req.body.email,
-    password: req.body.password,
+    password: securePassword,
     groups: req.body.groups
   })
   signedUpUser.save()
