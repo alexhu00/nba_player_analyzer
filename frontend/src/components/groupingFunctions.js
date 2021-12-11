@@ -18,7 +18,7 @@ export function getGroupDataNames() {
   let listOfNames = [];
 
   for (let i = 0; i < groupData.length; i++) {
-    listOfNames += groupData[i]["name"];
+    listOfNames.push(groupData[i]["name"]);
   }
   return listOfNames;
 }

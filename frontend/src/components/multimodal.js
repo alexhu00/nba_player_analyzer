@@ -48,9 +48,17 @@ class MultiModal extends React.Component {
         let listOfNames = getGroupDataNames();
         //populate list of group Headers
         let groupHeaders = [];
+
         for (let i = 0; i < listOfNames.length; i++) {
-            groupHeaders += <><input type="checkbox"></input><GroupHeader name={listOfNames[i]}></GroupHeader></>;
+            groupHeaders.push(<label class="container">
+                <input type="checkbox"></input>
+                <span className="checkmark"></span>
+                {listOfNames[i]}<input type="checkbox"></input>
+            </label>);
         }
+
+        console.log(groupHeaders);
+
         return groupHeaders;
     }
 
@@ -110,17 +118,7 @@ class MultiModal extends React.Component {
                                 <div className="modal-title-existing-modal"> Add to existing group </div>
                             </div>
                             <div className="modal-body-existing-modal">
-                                <label class="container">{this.createGroupHeaders()}
-
-
-                                    <input className="checkmark" type="checkbox"></input>
-                                </label>
-
-                                <label class="container">Group 2
-
-
-                                    <span className="checkmark"></span>
-                                </label>
+                                {this.createGroupHeaders()}
                             </div>
                             <div className="modal-footer-existing-modal">
                                 {/* need to change when adding object to existing groups */}
