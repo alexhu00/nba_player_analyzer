@@ -7,6 +7,8 @@ import HomePage from "./HomePage";
 import GroupTables from "./components/groupTables";
 import SignupOrLogin from "./components/SignupOrLogin";
 import { useState } from "react";
+import hoops from "./assets/hoops.png";
+
 const groupedData = require("./data/groupDataFake.json");
 
 const App = () => {
@@ -23,10 +25,12 @@ const App = () => {
             <SignupOrLogin setToken={setToken} ></SignupOrLogin>
           </Route>
           <Route path="/Players">
+            <img src={hoops} alt="hoops logo"></img>
             <NavBar />
             <AllPlayers></AllPlayers>
           </Route>
           <Route path="/Group">
+            <img src={hoops} alt="hoops logo"></img>
             <NavBar />
             <header className="Group">
               <GroupTables token = {token}></GroupTables>
@@ -34,6 +38,7 @@ const App = () => {
           </Route>
 
           <Route path="/Head_to_Head">
+            <img src={hoops} alt="hoops logo"></img>
             <NavBar />
             <HeadtoHead></HeadtoHead>
           </Route>

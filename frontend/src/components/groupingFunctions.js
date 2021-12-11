@@ -44,7 +44,7 @@ export const addToGroup = () => {
     checkbox.checked = false;
   });
 
-  // Adds to Gropu 1 Currently
+  // Adds to Group 1 Currently
   if (objects.length !== 0) {
     console.log(Object.entries(groupData[0])[2][1]); // 0 for object, 2 for players, 1 for the array
     for (let i = 0; i < objects.length; i++) {
@@ -57,7 +57,7 @@ export const addToGroup = () => {
 };
 
 // Get data from checkboxes
-export const createGroup = () => {
+export const createGroup = (name) => {
   let vals = getSelectedCheckboxItems("itemCheckbox");
   // console.log(vals[0].getAttribute("data"));
   let objects = [];
@@ -76,7 +76,7 @@ export const createGroup = () => {
   });
 
   if (objects.length !== 0) {
-    let newGroup = { id: 6, name: "New Group", players: objects };
+    let newGroup = { id: "TODO", name: name, players: objects };
     groupData.push(newGroup);
     console.log(groupData);
     return objects;

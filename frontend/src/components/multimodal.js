@@ -7,8 +7,10 @@ import "../css/createGroupModal.css"
 import "../css/modalstyles.css"
 import GroupModal from "./createGroupModal";
 import AddToExistingModal from "./createExistingGroupsModal";
+import { addToGroup, createGroup } from "./groupingFunctions";
 
 class MultiModal extends React.Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -28,8 +30,21 @@ class MultiModal extends React.Component {
         this.setState({ showModal: false });
         this.setState({ showModal: "" });
     }
+
+    handleNewGroupButton() {
+        let inputValue = document.getElementById('groupNameinput').value;
+        createGroup(inputValue);
+        this.handleCloseModal();
+    }
+
+    handleExistingGroupButton() {
+        addToGroup();
+        this.handleCloseModal();
+    }
+
     render() {
         return (
+
             <>
                 <div className="icon">
                     <div className="modal-container"
@@ -39,31 +54,30 @@ class MultiModal extends React.Component {
                         Create New Group
                     </div>
                     <Modal
-
                         isOpen={
                             this.state.showModal &&
                             this.state.activeModal === "newGroup"
                         }
                         contentLabel="newGroup Modal"
                     >
+
                         <div className="content">
                             <button className="close" onClick={this.handleCloseModal}>X</button>
                             <div className="modal-header">
                                 <div className="modal-title"> Create new Group </div>
                             </div>
                             <div className="modal-body">
-                                <form>
-                                    <input type="textarea" value="Type in group name here" id="groupNameinput" />
-                                </form>
+                                <input type="text" placeholder="Type in group name here" id="groupNameinput" />
                             </div>
                             <div className="modal-footer">
-                                <button className="exitcreategroup-button" onClick={this.handleCloseModal}>Create Group</button>
-
+                                <button className="exitcreategroup-button" onClick={() => this.handleNewGroupButton()}>Create Group</button>
                             </div>
                         </div>
 
                     </Modal>
                 </div>
+
+                {/* add to existing group modal */}
                 <div className="icon">
                     <div className="modal-container"
                         className="modal-button-existingGroup"
@@ -84,38 +98,20 @@ class MultiModal extends React.Component {
                                 <div className="modal-title-existing-modal"> Add to existing group </div>
                             </div>
                             <div className="modal-body-existing-modal">
-                                <label class="container">One
-                                    <input type="checkbox"></input>
-                                    <span className="checkmark"></span>
-                                </label>
+                                <label class="container">Group 1
 
-                                <label class="container">Two
                                     <input type="checkbox"></input>
                                     <span className="checkmark"></span>
                                 </label>
-                                <label class="container">fourteen
-                                    <input type="checkbox"></input>
-                                    <span className="checkmark"></span>
-                                </label>
-                                <label class="container">One
-                                    <input type="checkbox"></input>
-                                    <span className="checkmark"></span>
-                                </label>
+                                <label class="container">Group 2
 
-                                <label class="container">Two
                                     <input type="checkbox"></input>
                                     <span className="checkmark"></span>
                                 </label>
-                                <label class="container">fourteen
-                                    <input type="checkbox"></input>
-                                    <span className="checkmark"></span>
-                                </label>
-
-
                             </div>
                             <div className="modal-footer-existing-modal">
                                 {/* need to change when adding object to existing groups */}
-                                <button className="exitcreategroup-button" onClick={this.handleCloseModal}>Add</button>
+                                <button className="exitcreategroup-button" onClick={() => this.handleExistingGroupButton()}>Add</button>
                             </div>
                         </div>
 
