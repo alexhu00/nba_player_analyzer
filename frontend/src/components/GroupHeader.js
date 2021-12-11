@@ -8,6 +8,7 @@ const GroupHeader = (props) => {
       <div className="group-name">
         <h3>{props.name}</h3>
       </div>
+
       {/* <div className="buttons">
         <button className="sort-button group">
           <span className="text">Sort By Stat</span>
@@ -16,6 +17,7 @@ const GroupHeader = (props) => {
         </button>
       </div> */}
     </div>
+
   );
 };
 

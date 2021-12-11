@@ -8,9 +8,7 @@ import "../css/modalstyles.css"
 import GroupModal from "./createGroupModal";
 import GroupHeader from "./GroupHeader";
 import AddToExistingModal from "./createExistingGroupsModal";
-import { addToGroup, createGroup } from "./groupingFunctions";
-
-
+import { addToGroup, createGroup, getGroupDataNames } from "./groupingFunctions";
 
 
 class MultiModal extends React.Component {
@@ -46,15 +44,18 @@ class MultiModal extends React.Component {
         this.handleCloseModal();
     }
 
-    showGroups(props) {
-        <GroupHeader name="hetiosehtsoihto"></GroupHeader>
-        console.log(props);
+    createGroupHeaders() {
+        let listOfNames = getGroupDataNames();
+        //populate list of group Headers
+        let groupHeaders = [];
+        for (let i = 0; i < listOfNames.length; i++) {
+            groupHeaders += <><input type="checkbox"></input><GroupHeader name={listOfNames[i]}></GroupHeader></>;
+        }
+        return groupHeaders;
     }
-
 
     render() {
         return (
-
             <>
                 <div className="icon">
                     <div className="modal-container"
@@ -109,14 +110,15 @@ class MultiModal extends React.Component {
                                 <div className="modal-title-existing-modal"> Add to existing group </div>
                             </div>
                             <div className="modal-body-existing-modal">
+                                <label class="container">{this.createGroupHeaders()}
 
-                                <label class="container"><GroupHeader name="prop group name here"></GroupHeader>
-                                    <input type="checkbox"></input>
-                                    <span className="checkmark"></span>
+
+                                    <input className="checkmark" type="checkbox"></input>
                                 </label>
+
                                 <label class="container">Group 2
 
-                                    <input type="checkbox"></input>
+
                                     <span className="checkmark"></span>
                                 </label>
                             </div>
