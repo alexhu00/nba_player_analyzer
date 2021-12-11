@@ -34,7 +34,7 @@ class MultiModal extends React.Component {
     }
 
     handleNewGroupButton() {
-        let inputValue = document.getElementById('groupNameinput').value;
+        let inputValue = document.getElementById('groupNameInput').value;
         createGroup(inputValue);
         this.handleCloseModal();
     }
@@ -56,9 +56,6 @@ class MultiModal extends React.Component {
                 {listOfNames[i]}<input type="checkbox"></input>
             </label>);
         }
-
-        console.log(groupHeaders);
-
         return groupHeaders;
     }
 
@@ -86,7 +83,7 @@ class MultiModal extends React.Component {
                                 <div className="modal-title"> Create new Group </div>
                             </div>
                             <div className="modal-body">
-                                <input type="text" placeholder="Type in group name here" id="groupNameinput" />
+                                <input type="text" placeholder="Type in group name here" id="groupNameInput" />
                             </div>
                             <div className="modal-footer">
                                 <button className="exitcreategroup-button" onClick={() => this.handleNewGroupButton()}>Create Group</button>

@@ -68,6 +68,7 @@ export const addToGroup = () => {
 
 // Get data from checkboxes
 export const createGroup = (name) => {
+  console.log("CREATING")
   let vals = getSelectedCheckboxItems("itemCheckbox");
   // console.log(vals[0].getAttribute("data"));
   let objects = [];
