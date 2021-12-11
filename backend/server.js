@@ -1,49 +1,30 @@
-// #!/usr/bin/env node
-// const server = require("./app") // load up the web server
-// const port = 3000 // the port to listen to for incoming requests
-// // call express's listen function to start listening to the port
-// const listener = server.listen(port, function () {
-//   console.log(`Server running on port: ${port}`)
-// })
-// // a function to stop listening to the port
-// const close = () => {
-//   listener.close()
-// }
-// module.exports = {
-//   close: close,
-// }
-
 const express = require("express");
 const app = express();
+const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+const routesUrls = require('./routes/routes');
 const cors = require("cors");
+
 const PORT = 4000;
-const mongoose = require("mongoose");
-let user = require("./models/user.js");
-const ATLAS_URI="mongodb+srv://mern:mongodb@cluster0.1wx0v.mongodb.net/users?retryWrites=true&w=majority";
 const router = express.Router();
+
+dotenv.config();
+
+mongoose.connect(process.env.DATABASE_ACCESS, () => console.log("Database connected!"));
+
+app.use(express.json());
 app.use(cors());
+app.use('/app', routesUrls);
 
-// mongoose.connect("mongodb://127.0.0.1:27017/users", {
-//   useNewUrlParser: true
-// });
-
-mongoose.connect(ATLAS_URI, {
-  useNewUrlParser: true
+app.listen(PORT, function() {
+  console.log("Server is running on port: " + PORT);
 });
 
 const connection = mongoose.connection;
 
 connection.once("open", function() {
   console.log("Connection with MongoDB was successful");
-  //const arr = [[1,2,3],[4,5,6]];
-  //const x = new user({name:"hi", email:"hi@gmail.com", password: "hi", groups: arr}).save();
 });
 
-
-app.use("/", router);
-
-app.listen(PORT, function() {
-  console.log("Server is running on Port: " + PORT);
-});
 
 
