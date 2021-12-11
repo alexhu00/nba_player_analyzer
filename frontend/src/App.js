@@ -6,15 +6,19 @@ import HeadtoHead from "./components/HeadtoHead";
 import HomePage from "./HomePage";
 import GroupTables from "./components/groupTables";
 import SignupOrLogin from "./components/SignupOrLogin";
+import { useState } from "react";
 const groupedData = require("./data/groupDataFake.json");
 
 const App = () => {
+  const jwtToken = localStorage.getItem("token");
+  const [token, setToken] = useState(jwtToken);
+
   return (
     <div className="App">
       <Router>
         <Switch>
           <Route path="/" exact component={Home}>
-            <SignupOrLogin></SignupOrLogin>
+            <SignupOrLogin setToken={setToken} ></SignupOrLogin>
           </Route>
           <Route path="/Players">
             <NavBar />
@@ -23,7 +27,7 @@ const App = () => {
           <Route path="/Group">
             <NavBar />
             <header className="Group">
-              <GroupTables></GroupTables>
+              <GroupTables token = {token}></GroupTables>
             </header>
           </Route>
 
