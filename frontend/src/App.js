@@ -10,6 +10,8 @@ import { useState } from "react";
 const groupedData = require("./data/groupDataFake.json");
 
 const App = () => {
+  //TOKENS that we pass around to keep track of user data
+  //Currently, the token is the logged in user's object ID
   const jwtToken = localStorage.getItem("token");
   const [token, setToken] = useState(jwtToken);
 
