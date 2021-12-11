@@ -6,16 +6,23 @@ import HeadtoHead from "./components/HeadtoHead";
 import HomePage from "./HomePage";
 import GroupTables from "./components/groupTables";
 import SignupOrLogin from "./components/SignupOrLogin";
+import { useState } from "react";
 import hoops from "./assets/hoops.png";
+
 const groupedData = require("./data/groupDataFake.json");
 
 const App = () => {
+  //TOKENS that we pass around to keep track of user data
+  //Currently, the token is the logged in user's object ID
+  const jwtToken = localStorage.getItem("token");
+  const [token, setToken] = useState(jwtToken);
+
   return (
     <div className="App">
       <Router>
         <Switch>
           <Route path="/" exact component={Home}>
-            <SignupOrLogin></SignupOrLogin>
+            <SignupOrLogin setToken={setToken} ></SignupOrLogin>
           </Route>
           <Route path="/Players">
             <img src={hoops} alt="hoops logo"></img>
@@ -26,7 +33,7 @@ const App = () => {
             <img src={hoops} alt="hoops logo"></img>
             <NavBar />
             <header className="Group">
-              <GroupTables></GroupTables>
+              <GroupTables token = {token}></GroupTables>
             </header>
           </Route>
 

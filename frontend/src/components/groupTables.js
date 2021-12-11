@@ -3,7 +3,8 @@ import { useState } from "react";
 import GroupPlayers from "./groupTable";
 const groupedData = require("../data/groupDataFake.json");
 
-const GroupTables = (props) => {
+const GroupTables = (token) => {
+  console.log("token", token);
   const [groupData, setgroupData] = useState(groupedData);
 
   const showGroups = () => {
