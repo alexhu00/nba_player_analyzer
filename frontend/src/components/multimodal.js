@@ -6,8 +6,12 @@ import "../css/createGroupbutton.css"
 import "../css/createGroupModal.css"
 import "../css/modalstyles.css"
 import GroupModal from "./createGroupModal";
+import GroupHeader from "./GroupHeader";
 import AddToExistingModal from "./createExistingGroupsModal";
 import { addToGroup, createGroup } from "./groupingFunctions";
+
+
+
 
 class MultiModal extends React.Component {
 
@@ -41,6 +45,12 @@ class MultiModal extends React.Component {
         addToGroup();
         this.handleCloseModal();
     }
+
+    showGroups(props) {
+        <GroupHeader name="hetiosehtsoihto"></GroupHeader>
+        console.log(props);
+    }
+
 
     render() {
         return (
@@ -86,6 +96,7 @@ class MultiModal extends React.Component {
                         Add to group
                     </div>
                     <Modal
+
                         isOpen={
                             this.state.showModal &&
                             this.state.activeModal === "existingGroup"
@@ -98,8 +109,8 @@ class MultiModal extends React.Component {
                                 <div className="modal-title-existing-modal"> Add to existing group </div>
                             </div>
                             <div className="modal-body-existing-modal">
-                                <label class="container">Group 1
 
+                                <label class="container"><GroupHeader name="prop group name here"></GroupHeader>
                                     <input type="checkbox"></input>
                                     <span className="checkmark"></span>
                                 </label>
