@@ -33,7 +33,23 @@ function SignupOrLogin() {
     }
   }
 
-  function logInUser(){
+  function signUpUser(event){
+    console.log('SIGN UP!');
+
+    const registered = {
+      email: email,
+      password: password,
+      groups: []
+    }
+
+    axios.post("http://localhost:4000/app/signup", registered)
+      .then(res => {
+        console.log(res.data)
+        window.location.href = "/Players"
+      })
+  }
+
+  function logInUser(event){
     console.log("LOG IN!")
     // fetch("/users").then()
   }
@@ -106,7 +122,7 @@ function SignupOrLogin() {
           <div className="SignupOrLogin__btns">
             <button
               className="SignupOrLogin__signupbtn"
-              onClick={() => ChangeToSignup()}
+              onClick={() => signUpUser(Event)}
             >
               Sign up
             </button>
@@ -124,7 +140,7 @@ function SignupOrLogin() {
             <div className="SignupOrLogin__btns">
             <button
               className="SignupOrLogin__signupbtn"
-              onClick={() => logInUser()}
+              onClick={() => logInUser(Event)}
             >
               Log in
             </button>
