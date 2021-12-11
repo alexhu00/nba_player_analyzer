@@ -1,4 +1,5 @@
 import { useState, React, useEffect } from "react";
+import axios from 'axios';
 import hoops from "../assets/hoops.png";
 import "./SignupOrLogin.css";
 
@@ -30,6 +31,11 @@ function SignupOrLogin() {
     } else {
       console.log("No!");
     }
+  }
+
+  function logInUser(){
+    console.log("LOG IN!")
+    // fetch("/users").then()
   }
 
   return (
@@ -118,7 +124,7 @@ function SignupOrLogin() {
             <div className="SignupOrLogin__btns">
             <button
               className="SignupOrLogin__signupbtn"
-              onClick={() => ChangeToLogin()}
+              onClick={() => logInUser()}
             >
               Log in
             </button>
