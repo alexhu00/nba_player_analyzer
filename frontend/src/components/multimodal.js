@@ -67,7 +67,7 @@ class MultiModal extends React.Component {
                         className="modal-button-newGroup"
                         onClick={() => this.handleOpenModal("newGroup")}
                     >
-                        Create New Group
+                        Create new group
                     </div>
                     <Modal
                         isOpen={
