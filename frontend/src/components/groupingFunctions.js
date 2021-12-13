@@ -4,6 +4,7 @@ import { useTable, useSortBy } from "react-table";
 import { COLUMNS } from "./columnsAP";
 import NavBar from "../NavBar";
 import MultiModal from "./multimodal";
+import axios from "axios";
 
 // CSS imports
 import "../css/AllPlayers.css";
@@ -67,8 +68,9 @@ export const addToGroup = () => {
 };
 
 // Get data from checkboxes
-export const createGroup = (name) => {
-  console.log("CREATING")
+export const createGroup = (name, token) => {
+  console.log("CREATING", token.token)
+  const userId = token.token;
   let vals = getSelectedCheckboxItems("itemCheckbox");
   // console.log(vals[0].getAttribute("data"));
   let objects = [];
@@ -88,7 +90,20 @@ export const createGroup = (name) => {
 
   if (objects.length !== 0) {
     let newGroup = { id: "TODO", name: name, players: objects };
-    groupData.push(newGroup);
+
+    console.log("token", token);
+    axios
+      .post("http://localhost:4000/app/creategroup", {
+        userId, newGroup
+      })
+      .then((res) => {
+        console.log("!", res.data);
+      })
+      .catch((err) => {
+        console.log('errors!', err);
+      })
+
+    // groupData.push(newGroup);
     console.log(groupData);
     return objects;
   }

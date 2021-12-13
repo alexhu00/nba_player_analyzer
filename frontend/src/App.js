@@ -27,7 +27,7 @@ const App = () => {
             <Signout setToken={setToken}></Signout>
             <img src={hoops} alt="hoops logo"></img>
             <NavBar />
-            <AllPlayers></AllPlayers>
+            <AllPlayers token = {token}></AllPlayers>
           </Route>
           <Route path="/Group">
             <Signout setToken={setToken}></Signout>

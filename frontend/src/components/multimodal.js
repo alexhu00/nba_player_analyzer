@@ -12,12 +12,14 @@ import { addToGroup, createGroup, getGroupDataNames } from "./groupingFunctions"
 
 
 class MultiModal extends React.Component {
-
     constructor(props) {
+        const token = props.token;
+        console.log("token", token);
         super(props);
         this.state = {
             showModal: false,
             activeModal: "",
+            token: token,
         };
         this.handleOpenModal = this.handleOpenModal.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
@@ -35,7 +37,8 @@ class MultiModal extends React.Component {
 
     handleNewGroupButton() {
         let inputValue = document.getElementById('groupNameInput').value;
-        createGroup(inputValue);
+        console.log("this token", this.state.token);
+        createGroup(inputValue, this.state.token);
         this.handleCloseModal();
     }
 

@@ -53,4 +53,42 @@ router.post('/login', async (req, res, next) => {
   }
 })
 
+//CREATE NEW GROUP
+router.post('/creategroup', async(req, res, next) => {
+  const { userId, newGroup } = req.body;
+  console.log("userId", userId);
+  console.log("newGroup", newGroup );
+
+  const updatedGroup = User.findOneAndUpdate(
+    { _id: userId},
+    { $push: {groups: newGroup }},
+    { upsert: false},
+    function(err){
+      if(err){
+        console.log(err);
+      }
+      else{
+        console.log("SUCCESS");
+      }
+    }
+  );
+  console.log("updatedGroup", updatedGroup);
+  res.json(updatedGroup);
+})
+
+//GET GROUP
+router.get('/showgroup/:userId', async(req, res, next) => {
+  const userId = req.params.userId;
+  console.log("userId", userId);
+
+const getGroups = await User.findOne({ _id: userId })
+  .select("groups")
+  .catch((err) => {
+    next(err);
+  })
+
+  console.log("getGroups", getGroups);
+  res.json(getGroups);
+})
+
 module.exports = router;
