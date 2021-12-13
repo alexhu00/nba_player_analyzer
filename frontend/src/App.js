@@ -24,25 +24,24 @@ const App = () => {
             <SignupOrLogin setToken={setToken} ></SignupOrLogin>
           </Route>
           <Route path="/Players">
+            <Signout setToken={setToken}></Signout>
             <img src={hoops} alt="hoops logo"></img>
             <NavBar />
             <AllPlayers></AllPlayers>
           </Route>
           <Route path="/Group">
+            <Signout setToken={setToken}></Signout>
             <img src={hoops} alt="hoops logo"></img>
             <NavBar />
             <header className="Group">
               <GroupTables token = {token}></GroupTables>
             </header>
           </Route>
-
           <Route path="/Head_to_Head">
+            <Signout setToken={setToken}></Signout>
             <img src={hoops} alt="hoops logo"></img>
             <NavBar />
             <HeadtoHead></HeadtoHead>
-          </Route>
-          <Route path="/logout">
-              <Signout setToken={setToken} />
           </Route>
         </Switch>
       </Router>
