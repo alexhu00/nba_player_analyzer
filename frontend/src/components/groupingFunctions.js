@@ -4,6 +4,7 @@ import { useTable, useSortBy } from "react-table";
 import { COLUMNS } from "./columnsAP";
 import NavBar from "../NavBar";
 import MultiModal from "./multimodal";
+import axios from "axios";
 
 // CSS imports
 import "../css/AllPlayers.css";
@@ -12,16 +13,6 @@ import "../css/sortButton.css";
 import "../css/buttonStyling.css";
 
 const groupData = require("../data/groupDataFake.json");
-
-// returns list of group names
-export function getGroupDataNames() {
-  let listOfNames = [];
-
-  for (let i = 0; i < groupData.length; i++) {
-    listOfNames.push(groupData[i]["name"]);
-  }
-  return listOfNames;
-}
 
 // Get checkboxes
 export function getSelectedCheckboxItems(name) {
@@ -36,7 +27,14 @@ export function getSelectedCheckboxItems(name) {
 }
 
 // Get data from checkboxes
-export const addToGroup = () => {
+export const addToGroup = (token, checked, names) => {
+  const userId = token.token;
+  const groupId = checked;
+  const groupName = names;
+
+
+  console.log("hello!, userid", userId)
+  console.log("hello!, groupid", groupId);
   let vals = getSelectedCheckboxItems("itemCheckbox");
   // console.log(vals[0].getAttribute("data"));
   let objects = [];
@@ -46,6 +44,17 @@ export const addToGroup = () => {
       let obj_data = JSON.parse(str_data);
       objects.push(obj_data);
     }
+
+    const newPlayers = objects;
+    console.log("?", newPlayers);
+    axios
+    .post("http://localhost:4000/app/addtogroup", { userId, newPlayers, groupId, groupName})
+    .then((res) => {
+      console.log("!", res.data);
+    })
+    .catch((err) => {
+      console.log("errors!", err);
+    })
   }
 
   // uncheck all checkboxes
@@ -67,8 +76,9 @@ export const addToGroup = () => {
 };
 
 // Get data from checkboxes
-export const createGroup = (name) => {
-  console.log("CREATING")
+export const createGroup = (name, token) => {
+  console.log("CREATING", token.token)
+  const userId = token.token;
   let vals = getSelectedCheckboxItems("itemCheckbox");
   // console.log(vals[0].getAttribute("data"));
   let objects = [];
@@ -87,8 +97,21 @@ export const createGroup = (name) => {
   });
 
   if (objects.length !== 0) {
-    let newGroup = { id: "TODO", name: name, players: objects };
-    groupData.push(newGroup);
+    let newGroup = { id: "", name: name, players: objects };
+
+    console.log("token", token);
+    axios
+      .post("http://localhost:4000/app/creategroup", {
+        userId, newGroup
+      })
+      .then((res) => {
+        console.log("!", res.data);
+      })
+      .catch((err) => {
+        console.log('errors!', err);
+      })
+
+    // groupData.push(newGroup);
     console.log(groupData);
     return objects;
   }

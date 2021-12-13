@@ -53,4 +53,87 @@ router.post('/login', async (req, res, next) => {
   }
 })
 
+//CREATE NEW GROUP
+router.post('/creategroup', async(req, res, next) => {
+  const { userId, newGroup } = req.body;
+  console.log("userId", userId);
+  console.log("newGroup", newGroup );
+
+  const updatedGroup = User.findOneAndUpdate(
+    { _id: userId},
+    { $push: {groups: newGroup }},
+    { upsert: false},
+    function(err){
+      if(err){
+        console.log(err);
+      }
+      else{
+        console.log("SUCCESS");
+      }
+    }
+  );
+  console.log("updatedGroup", updatedGroup);
+  res.json(updatedGroup);
+})
+
+//ADD TO GROUP
+router.post('/addtogroup', async(req, res, next) => {
+  const { userId, newPlayers, groupId, groupName } = req.body;
+
+  console.log("userId", userId);
+  console.log("newPlayers", newPlayers);
+  console.log("groupId", groupId)
+  console.log("groupName", groupName)
+
+  const currUser = await User.findById(userId);
+  let AllGroups = currUser.groups;
+
+  console.log("AllGroups", AllGroups);
+
+  let currGroup = [];
+
+  for (let i = 0; i < AllGroups.length; i++){
+    if (i == groupId){
+      currGroup = AllGroups[i].players;
+    }
+  }
+
+  const resultGroup = currGroup.concat(newPlayers);
+  AllGroups[groupId].players = resultGroup;
+  console.log("AllGroups", resultGroup);
+  console.log("AllGroups", AllGroups);
+
+  const updatedGroup = await User.findOneAndUpdate(
+    {_id: userId},
+    { groups: AllGroups },
+    { upsert: false},
+    function(err){
+      if(err){
+        console.log(err);
+      }
+      else{
+        console.log("SUCCESS");
+      }
+    }
+  );
+
+  res.json(updatedGroup);
+})
+
+
+//GET GROUP
+router.get('/showgroup/:userId', async(req, res, next) => {
+  const userId = req.params.userId;
+  console.log("userId", userId);
+
+const getGroups = await User.findOne({ _id: userId })
+  .select("groups")
+  .catch((err) => {
+    next(err);
+  })
+
+  console.log("getGroups", getGroups);
+  res.json(getGroups);
+})
+
 module.exports = router;

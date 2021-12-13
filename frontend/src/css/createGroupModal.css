@@ -41,18 +41,33 @@
     margin-right: 24px;
 }
 
+.modal-footer button:hover{
+    cursor: pointer;
+}
+
 .modal-body {
     padding-bottom: 72px;   
     padding-left: 48px;
     float: left;
 }
 
-#groupNameinput {
-    border-color: #237AFD;
-    border-radius: 20px;
-    width: 323px;
-    height: 49px;
-    padding-left: 12px;
-    border-width: 1px;
+#groupNameInput{
+    padding: 10px;
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+    width: 500px;
+}
+
+.close{
+    background-color: white;
+    color: red;
+    border: 1px solid lightpink;
+    border-radius: 5px;
+    font-weight: 700;
+    padding: 2px 5px;
+}
+
+.close:hover{
+    cursor: pointer;
 }
 

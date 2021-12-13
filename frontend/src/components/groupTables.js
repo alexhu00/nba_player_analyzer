@@ -1,17 +1,29 @@
 // import logo from "./logo.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from 'axios';
 import GroupPlayers from "./groupTable";
-const groupedData = require("../data/groupDataFake.json");
 
-const GroupTables = (token) => {
-  //This token holds the userId for the current user logged in.
-  //Find the document in MongoDB with this _.id and display all the groups
-  console.log("token", token);
-  const [groupData, setgroupData] = useState(groupedData);
+  function GroupTables(token){
+  const userId = token.token;
+  console.log("USER ID", userId);
+  const [groupData, setGroupData] = useState([]);
 
-  const showGroups = () => {
+  useEffect(() => {
+    axios
+      .get(`http://localhost:4000/app/showgroup/${userId}`)
+      .then((res) => {
+        console.log("!", res.data.groups);
+        setGroupData(res.data.groups);
+      })
+      .catch((err) => {
+        console.log("errors!", err);
+    })
+  }, [])
+
+  console.log("groupData", groupData);
+
+  function getGroups(){
     let groupList = [];
-    console.log(groupData)
     for (let i = 0; i < groupData.length; i++) {
       groupList.push(
         <GroupPlayers
@@ -21,13 +33,13 @@ const GroupTables = (token) => {
       );
     }
     return groupList;
-  };
+  }
 
   const renderGroups = () => {
-    return <div>{showGroups()}</div>;
+    return <div>{getGroups()}</div>;
   };
 
-  return <div>{renderGroups()}</div>;
+  return (<div>{renderGroups()}</div>);
 };
 
 export default GroupTables;

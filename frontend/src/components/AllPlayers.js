@@ -4,8 +4,7 @@ import { useTable, useSortBy } from "react-table";
 import { COLUMNS } from "./columnsAP";
 import NavBar from "../NavBar";
 import MultiModal from "./multimodal";
-
-import { addToGroup, createGroup } from "./groupingFunctions";
+import axios from "axios";
 
 // CSS imports
 import "../css/AllPlayers.css";
@@ -17,7 +16,8 @@ import "../css/buttonStyling.css";
 // TABLE TUTORIAL: https://www.youtube.com/watch?v=hson9BXU9F8
 // CSV TO JSON Convertor: https://www.convertcsv.com/csv-to-json.htm
 
-const AllPlayers = () => {
+function AllPlayers(token) {
+  console.log("token!", token);
   // Select All Checkboxes
   function toggle(source, name) {
     let checkboxes = document.querySelectorAll(`input[name="${name}"]`);
@@ -28,6 +28,7 @@ const AllPlayers = () => {
       }
     });
   }
+
   // Show Modals
   const [show, setShow] = useState(false);
 
@@ -56,19 +57,7 @@ const AllPlayers = () => {
   return (
     <div>
       <div className={"actionButtonsGroup"}>
-        {/* <button onClick={() => setShow(true)} className={"createGroup-button"}>
-          {" "}
-          Create new group
-        </button>
-        <GroupModal onClose={() => setShow(false)} show={show} />
-        <div class="divider" />
-        <button onClick={() => setShow(true)} className={"addToTeam-button"}>
-          {" "}
-          Add to group
-        </button>
-        <div class="divider" />
-        <AddToExistingModal onClose={() => setShow(false)} show={show} className={"addToExisting"} /> */}
-        <MultiModal />
+        <MultiModal token = {token}/>
 
         <div class="divider" />
       </div>
@@ -113,9 +102,7 @@ const AllPlayers = () => {
       </table>
     </div>
   );
-};
-
-// the home page with the items and the stuff at the bottom
+}
 const Home = () => (
   <div>
     <NavBar />
