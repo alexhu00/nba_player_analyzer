@@ -6,10 +6,9 @@ import HeadtoHead from "./components/HeadtoHead";
 import HomePage from "./HomePage";
 import GroupTables from "./components/groupTables";
 import SignupOrLogin from "./components/SignupOrLogin";
+import Signout from "./components/Signout";
 import { useState } from "react";
 import hoops from "./assets/hoops.png";
-
-const groupedData = require("./data/groupDataFake.json");
 
 const App = () => {
   //TOKENS that we pass around to keep track of user data
@@ -25,19 +24,21 @@ const App = () => {
             <SignupOrLogin setToken={setToken} ></SignupOrLogin>
           </Route>
           <Route path="/Players">
+            <Signout setToken={setToken}></Signout>
             <img src={hoops} alt="hoops logo"></img>
             <NavBar />
             <AllPlayers></AllPlayers>
           </Route>
           <Route path="/Group">
+            <Signout setToken={setToken}></Signout>
             <img src={hoops} alt="hoops logo"></img>
             <NavBar />
             <header className="Group">
               <GroupTables token = {token}></GroupTables>
             </header>
           </Route>
-
           <Route path="/Head_to_Head">
+            <Signout setToken={setToken}></Signout>
             <img src={hoops} alt="hoops logo"></img>
             <NavBar />
             <HeadtoHead></HeadtoHead>

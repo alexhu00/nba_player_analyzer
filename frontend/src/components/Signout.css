@@ -1,0 +1,18 @@
+.signout{
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px;
+}
+
+.signout-btn{
+    border: 1px solid lightcoral;
+    border-radius: 20px;
+    padding: 10px 15px;
+    text-decoration: bold;
+    font-weight: 600;
+    background-color: #FFE3CE;
+}
+
+.signout-btn:hover{
+    cursor: pointer;
+}

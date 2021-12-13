@@ -4,6 +4,8 @@ import GroupPlayers from "./groupTable";
 const groupedData = require("../data/groupDataFake.json");
 
 const GroupTables = (token) => {
+  //This token holds the userId for the current user logged in.
+  //Find the document in MongoDB with this _.id and display all the groups
   console.log("token", token);
   const [groupData, setgroupData] = useState(groupedData);
 
