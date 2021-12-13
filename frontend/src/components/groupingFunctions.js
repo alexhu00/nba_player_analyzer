@@ -27,7 +27,14 @@ export function getSelectedCheckboxItems(name) {
 }
 
 // Get data from checkboxes
-export const addToGroup = () => {
+export const addToGroup = (token, checked, names) => {
+  const userId = token.token;
+  const groupId = checked;
+  const groupName = names;
+
+
+  console.log("hello!, userid", userId)
+  console.log("hello!, groupid", groupId);
   let vals = getSelectedCheckboxItems("itemCheckbox");
   // console.log(vals[0].getAttribute("data"));
   let objects = [];
@@ -37,6 +44,17 @@ export const addToGroup = () => {
       let obj_data = JSON.parse(str_data);
       objects.push(obj_data);
     }
+
+    const newPlayers = objects;
+    console.log("?", newPlayers);
+    axios
+    .post("http://localhost:4000/app/addtogroup", { userId, newPlayers, groupId, groupName})
+    .then((res) => {
+      console.log("!", res.data);
+    })
+    .catch((err) => {
+      console.log("errors!", err);
+    })
   }
 
   // uncheck all checkboxes
@@ -79,7 +97,7 @@ export const createGroup = (name, token) => {
   });
 
   if (objects.length !== 0) {
-    let newGroup = { id: "TODO", name: name, players: objects };
+    let newGroup = { id: "", name: name, players: objects };
 
     console.log("token", token);
     axios

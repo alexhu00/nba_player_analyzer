@@ -75,18 +75,50 @@ router.post('/creategroup', async(req, res, next) => {
   console.log("updatedGroup", updatedGroup);
   res.json(updatedGroup);
 })
-//ADD TO GROUP
-// router.post('/addtogroup', async(req, res, next) => {
-//   const { userId, newPlayers, groupId } = req.body;
-//   console.log("userId", userId);
-//   console.log("newPlayers", newPlayers);
-//   console.log("groupId", groupId)
 
-//   const updatedGroup = User.findOneAndUpdate(
-//     { _id: userId },
-//     { }
-//   ) 
-// })
+//ADD TO GROUP
+router.post('/addtogroup', async(req, res, next) => {
+  const { userId, newPlayers, groupId, groupName } = req.body;
+
+  console.log("userId", userId);
+  console.log("newPlayers", newPlayers);
+  console.log("groupId", groupId)
+  console.log("groupName", groupName)
+
+  const currUser = await User.findById(userId);
+  let AllGroups = currUser.groups;
+
+  console.log("AllGroups", AllGroups);
+
+  let currGroup = [];
+
+  for (let i = 0; i < AllGroups.length; i++){
+    if (i == groupId){
+      currGroup = AllGroups[i].players;
+    }
+  }
+
+  const resultGroup = currGroup.concat(newPlayers);
+  AllGroups[groupId].players = resultGroup;
+  console.log("AllGroups", resultGroup);
+  console.log("AllGroups", AllGroups);
+
+  const updatedGroup = await User.findOneAndUpdate(
+    {_id: userId},
+    { groups: AllGroups },
+    { upsert: false},
+    function(err){
+      if(err){
+        console.log(err);
+      }
+      else{
+        console.log("SUCCESS");
+      }
+    }
+  );
+
+  res.json(updatedGroup);
+})
 
 
 //GET GROUP

@@ -21,8 +21,11 @@ class MultiModal extends React.Component {
             showModal: false,
             activeModal: "",
             token: token,
-            listOfNames: []
+            listOfNames: [],
+            checked: null,
+            checkedName: ''
         };
+        this.onInputchange = this.onInputchange.bind(this);
         this.handleOpenModal = this.handleOpenModal.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
         // this.createGroupHeaders();
@@ -64,9 +67,21 @@ class MultiModal extends React.Component {
     }
 
     handleExistingGroupButton() {
-        addToGroup();
+        addToGroup(this.state.token, this.state.checked, this.state.checkedName);
         this.handleCloseModal();
     }
+
+    onInputchange(event) {
+        console.log("Hm", event.target.value, event.target.name, event.target.checked);
+        if (event.target.checked){
+            this.setState({ checked: event.target.value })
+            this.setState({ checkedName: event.target.name })
+        }
+        else{
+            this.setState({ checked: null })
+            this.setState({ checkedName: '' })
+        }
+      }
 
     render() {
         return (
@@ -124,11 +139,16 @@ class MultiModal extends React.Component {
                                 <div className="modal-title-existing-modal"> Add to existing group </div>
                             </div>
                             <div className="modal-body-existing-modal">
-                                {this.state.listOfNames.map((name) => (
+                                {this.state.listOfNames.map((name, index) => (
                                     <label class="container">
-                                    <input type="checkbox"></input>
+                                    <input 
+                                        name={name}
+                                        type="checkbox"
+                                        value={index}
+                                        onChange={this.onInputchange}
+                                        ></input>
                                     <span className="checkmark"></span>
-                                    {name}<input type="checkbox"></input>
+                                    {name}
                                 </label>
                                 ))}
                             </div>
