@@ -1,6 +1,7 @@
 
 import React from "react";
 import Modal from "react-modal";
+import axios from 'axios';
 import "../css/createExistingGroupsModal.css"
 import "../css/createGroupbutton.css"
 import "../css/createGroupModal.css"
@@ -8,7 +9,7 @@ import "../css/modalstyles.css"
 import GroupModal from "./createGroupModal";
 import GroupHeader from "./GroupHeader";
 import AddToExistingModal from "./createExistingGroupsModal";
-import { addToGroup, createGroup, getGroupDataNames } from "./groupingFunctions";
+import { addToGroup, createGroup } from "./groupingFunctions";
 
 
 class MultiModal extends React.Component {
@@ -20,10 +21,30 @@ class MultiModal extends React.Component {
             showModal: false,
             activeModal: "",
             token: token,
+            listOfNames: []
         };
         this.handleOpenModal = this.handleOpenModal.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
+        // this.createGroupHeaders();
     }
+
+    componentDidMount() {
+        axios.get(`http://localhost:4000/app/showgroup/${this.state.token.token}`)
+        .then((res) => {
+            console.log("!", res.data.groups);
+            let tempList = [];
+            let groupData = (res.data.groups);
+      
+            for (let i = 0; i < groupData.length; i++) {
+              tempList.push(groupData[i]["name"]);
+            }
+            console.log("hi", tempList)
+            this.setState({ listOfNames: tempList })
+          })
+        .catch((err) => {
+            console.log("errors!", err)
+        })
+     }
 
     handleOpenModal(val) {
         this.setState({ activeModal: val });
@@ -45,21 +66,6 @@ class MultiModal extends React.Component {
     handleExistingGroupButton() {
         addToGroup();
         this.handleCloseModal();
-    }
-
-    createGroupHeaders() {
-        let listOfNames = getGroupDataNames();
-        //populate list of group Headers
-        let groupHeaders = [];
-
-        for (let i = 0; i < listOfNames.length; i++) {
-            groupHeaders.push(<label class="container">
-                <input type="checkbox"></input>
-                <span className="checkmark"></span>
-                {listOfNames[i]}<input type="checkbox"></input>
-            </label>);
-        }
-        return groupHeaders;
     }
 
     render() {
@@ -100,7 +106,7 @@ class MultiModal extends React.Component {
                 <div className="icon">
                     <div className="modal-container"
                         className="modal-button-existingGroup"
-                        onClick={() => this.handleOpenModal("existingGroup")}
+                        onClick={() => setTimeout(this.handleOpenModal("existingGroup"), 20000)}
                     >
                         Add to group
                     </div>
@@ -118,7 +124,13 @@ class MultiModal extends React.Component {
                                 <div className="modal-title-existing-modal"> Add to existing group </div>
                             </div>
                             <div className="modal-body-existing-modal">
-                                {this.createGroupHeaders()}
+                                {this.state.listOfNames.map((name) => (
+                                    <label class="container">
+                                    <input type="checkbox"></input>
+                                    <span className="checkmark"></span>
+                                    {name}<input type="checkbox"></input>
+                                </label>
+                                ))}
                             </div>
                             <div className="modal-footer-existing-modal">
                                 {/* need to change when adding object to existing groups */}

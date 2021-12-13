@@ -57,18 +57,6 @@ function AllPlayers(token) {
   return (
     <div>
       <div className={"actionButtonsGroup"}>
-        {/* <button onClick={() => setShow(true)} className={"createGroup-button"}>
-          {" "}
-          Create new group
-        </button>
-        <GroupModal onClose={() => setShow(false)} show={show} />
-        <div class="divider" />
-        <button onClick={() => setShow(true)} className={"addToTeam-button"}>
-          {" "}
-          Add to group
-        </button>
-        <div class="divider" />
-        <AddToExistingModal onClose={() => setShow(false)} show={show} className={"addToExisting"} /> */}
         <MultiModal token = {token}/>
 
         <div class="divider" />

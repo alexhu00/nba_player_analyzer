@@ -14,16 +14,6 @@ import "../css/buttonStyling.css";
 
 const groupData = require("../data/groupDataFake.json");
 
-// returns list of group names
-export function getGroupDataNames() {
-  let listOfNames = [];
-
-  for (let i = 0; i < groupData.length; i++) {
-    listOfNames.push(groupData[i]["name"]);
-  }
-  return listOfNames;
-}
-
 // Get checkboxes
 export function getSelectedCheckboxItems(name) {
   let values = [];

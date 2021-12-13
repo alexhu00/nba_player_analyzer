@@ -75,6 +75,19 @@ router.post('/creategroup', async(req, res, next) => {
   console.log("updatedGroup", updatedGroup);
   res.json(updatedGroup);
 })
+//ADD TO GROUP
+// router.post('/addtogroup', async(req, res, next) => {
+//   const { userId, newPlayers, groupId } = req.body;
+//   console.log("userId", userId);
+//   console.log("newPlayers", newPlayers);
+//   console.log("groupId", groupId)
+
+//   const updatedGroup = User.findOneAndUpdate(
+//     { _id: userId },
+//     { }
+//   ) 
+// })
+
 
 //GET GROUP
 router.get('/showgroup/:userId', async(req, res, next) => {
