@@ -4,6 +4,8 @@
 
 Hoops allows fantasy basketball players to easily compare and contrast their own dream teams with different views.
 
+[Slide Deck](https://github.com/alexhu00/nba_player_analyzer/blob/master/Hoops%20App%20Demo%20Deck%20-%20Remote%20Collabs.pdf)
+
 View player stats 1-1 
 ![Screen Shot 2021-12-07 at 1 46 38 AM](https://user-images.githubusercontent.com/45698971/144980127-94a2b254-5611-45cf-b5e7-d99abd6a3744.png)
 
