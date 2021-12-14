@@ -1,6 +1,6 @@
-![Screen Shot 2021-12-07 at 1 43 47 AM](https://user-images.githubusercontent.com/45698971/144979800-00ace52b-9323-4bac-bb27-fd76e401a64a.png)
-
 # Hoops - A NBA Player Analyzer 
+
+![Screen Shot 2021-12-07 at 1 43 47 AM](https://user-images.githubusercontent.com/45698971/144979800-00ace52b-9323-4bac-bb27-fd76e401a64a.png)
 
 Hoops allows fantasy basketball players to easily compare and contrast their own dream teams with different views.
 
